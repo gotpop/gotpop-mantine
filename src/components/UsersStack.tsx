@@ -1,7 +1,8 @@
-import { usersData } from "@/pages/api/users"
-import { Avatar, Table, Group, Text, ActionIcon, Menu, ScrollArea } from "@mantine/core"
+import { ActionIcon, Avatar, Group, Menu, ScrollArea, Table, Text } from "@mantine/core"
+import { IconDots, IconMessages, IconNote, IconPencil, IconReportAnalytics, IconTrash } from "@tabler/icons-react"
+
 import { NextLink } from "@mantine/next"
-import { IconPencil, IconMessages, IconNote, IconReportAnalytics, IconTrash, IconDots } from "@tabler/icons-react"
+import { usersData } from "@/pages/api/users"
 
 interface UsersStackProps {
   userData: usersData[]
