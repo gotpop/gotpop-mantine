@@ -8,7 +8,6 @@ interface UsersStackProps {
 }
 
 export default function UsersStack({ userData }: UsersStackProps) {
-  //   console.log("userData :", userData)
   const rows = userData?.map((item) => (
     <tr key={item.name}>
       <td>
