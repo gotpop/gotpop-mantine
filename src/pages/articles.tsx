@@ -29,7 +29,7 @@ export default function Articles() {
   const cards = data?.articlesdata?.map((article: ArticlesDataType) => (
     <Card href={`/article/${article.id}`} key={article.title} p="md" radius="md" component="a" className={classes.card}>
       <AspectRatio ratio={1920 / 1080}>
-        <Image src={article.image} />
+        <Image alt={"img"} src={article.image} />
       </AspectRatio>
       <Text color="dimmed" size="xs" transform="uppercase" weight={700} mt="md">
         {article.date}
