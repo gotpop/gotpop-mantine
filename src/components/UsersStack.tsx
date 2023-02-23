@@ -12,9 +12,7 @@ export default function UsersStack({ userData }: UsersStackProps) {
     <tr key={item.name}>
       <td>
         <Group spacing="sm">
-          <NextLink href={"/"} legacyBehavior>
             <Avatar size={40} src={item.avatar} radius={40} />
-          </NextLink>
           <div>
             <Text size="sm" weight={500}>
               {item.name}
