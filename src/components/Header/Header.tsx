@@ -14,6 +14,9 @@ export function HeaderItem() {
           <NextLink href="/" color="gray" legacyBehavior className={classes.link}>
             Home
           </NextLink>
+          <NextLink href="/login" color="gray" legacyBehavior className={classes.link}>
+            Login
+          </NextLink>
           <NextLink href="/users" color="gray" legacyBehavior className={classes.link}>
             Users
           </NextLink>
