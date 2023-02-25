@@ -7,7 +7,7 @@ export default function handleArticle(
   res: NextApiResponse<ArticlesDataType | undefined>
 ) {
   const { id } = req.query
-  const article = articlesdata.find((a: ArticlesDataType) => a.id === id)
+  const article = articlesdata.find((article: ArticlesDataType) => article.id === id)
 
   res.status(200).json(article)
 }
