@@ -1,0 +1,1 @@
+export { HeroContentLeft } from "./Hero"

@@ -1,10 +1,78 @@
 import Head from "next/head"
 import { AppShell } from "@mantine/core"
-import { FooterItem } from "./Footer"
+import { FooterItem } from "./Footer/Footer"
 import { HeaderItem } from "./Header/Header"
 
 type Props = {
   children: React.ReactNode
+}
+
+const footerData = {
+  data: [
+    {
+      title: "About",
+      links: [
+        {
+          label: "Features",
+          link: "#"
+        },
+        {
+          label: "Pricing",
+          link: "#"
+        },
+        {
+          label: "Support",
+          link: "#"
+        },
+        {
+          label: "Forums",
+          link: "#"
+        }
+      ]
+    },
+    {
+      title: "Project",
+      links: [
+        {
+          label: "Contribute",
+          link: "#"
+        },
+        {
+          label: "Media assets",
+          link: "#"
+        },
+        {
+          label: "Changelog",
+          link: "#"
+        },
+        {
+          label: "Releases",
+          link: "#"
+        }
+      ]
+    },
+    {
+      title: "Community",
+      links: [
+        {
+          label: "Join Discord",
+          link: "#"
+        },
+        {
+          label: "Follow on Twitter",
+          link: "#"
+        },
+        {
+          label: "Email newsletter",
+          link: "#"
+        },
+        {
+          label: "GitHub discussions",
+          link: "#"
+        }
+      ]
+    }
+  ]
 }
 
 export function Layout({ children }: Props) {
@@ -18,12 +86,14 @@ export function Layout({ children }: Props) {
       </Head>
       <AppShell
         header={<HeaderItem />}
-        footer={<FooterItem />}
+        footer={<FooterItem {...footerData} />}
         styles={{
           main: {
             backgroundColor: "whitesmoke",
             minHeight: "100vh",
-            minWidth: "100vw"
+            paddingLeft: "0",
+            paddingRight: "0",
+            paddingTop: "0"
           }
         }}
       >
