@@ -12,24 +12,24 @@ export default function users({ userData }: Props) {
   return (
     <Layout>
       <Title order={1}>Users</Title>
-      <UsersStack userData={userData} />
+      {/* <UsersStack userData={userData} /> */}
     </Layout>
   )
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const dev = process.env.NODE_ENV !== "production"
-  const local = "http://localhost:3000/api/users"
-  const prod = "https://gotpop-mantine.vercel.app/api/users"
+// export const getStaticProps: GetStaticProps<Props> = async () => {
+//   const dev = process.env.NODE_ENV !== "production"
+//   const local = "http://localhost:3000/api/users"
+//   const prod = "https://gotpop-mantine.vercel.app/api/users"
 
-  const URL = dev ? local : prod
+//   const URL = dev ? local : prod
 
-  const data = await fetch(URL)
-  const userData = await data.json()
+//   const data = await fetch(URL)
+//   const userData = await data.json()
 
-  return {
-    props: {
-      userData
-    }
-  }
-}
+//   return {
+//     props: {
+//       userData
+//     }
+//   }
+// }
