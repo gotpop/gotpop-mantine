@@ -1,9 +1,13 @@
-import { Footer } from "@mantine/core"
+import { Center, Footer, Text } from "@mantine/core"
 
 export default function FooterItem() {
   return (
     <Footer p="xs" height={"10"}>
-      <small>Footer</small>
+      <Center>
+        <Text size={"xs"}>
+          <>Copyright {new Date().getFullYear()}</>
+        </Text>
+      </Center>
     </Footer>
   )
 }

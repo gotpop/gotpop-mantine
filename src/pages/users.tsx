@@ -1,34 +1,35 @@
 import { GetStaticProps } from "next"
-import Layout from "@/components/Layout"
-import UsersStack from "@/components/UsersStack"
-import { usersData } from "./api/users"
+import { Layout } from "@/components/Layout"
+import { UsersStack } from "@/components/UsersStack"
+import { UsersData } from "./api/users"
+import { Title } from "@mantine/core"
 
-type UsersProps = {
-  userData: usersData[]
+type Props = {
+  userData: UsersData[]
 }
 
-export default function users({ userData }: UsersProps) {
+export default function users({ userData }: Props) {
   return (
     <Layout>
-      <h1>Users</h1>
+      <Title order={1}>Users</Title>
       <UsersStack userData={userData} />
     </Layout>
   )
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const dev = process.env.NODE_ENV !== 'production'
-  const local = 'http://localhost:3000/api/users'
-  const prod = 'https://gotpop-mantine.vercel.app/api/users'
-  
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const dev = process.env.NODE_ENV !== "production"
+  const local = "http://localhost:3000/api/users"
+  const prod = "https://gotpop-mantine.vercel.app/api/users"
+
   const URL = dev ? local : prod
 
   const data = await fetch(URL)
-  const { userData } = await data.json()
+  const userData = await data.json()
 
   return {
     props: {
-      userData,
-    },
+      userData
+    }
   }
 }

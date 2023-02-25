@@ -1,19 +1,26 @@
 import { ActionIcon, Avatar, Group, Menu, ScrollArea, Table, Text } from "@mantine/core"
-import { IconDots, IconMessages, IconNote, IconPencil, IconReportAnalytics, IconTrash } from "@tabler/icons-react"
+import {
+  IconDots,
+  IconMessages,
+  IconNote,
+  IconPencil,
+  IconReportAnalytics,
+  IconTrash
+} from "@tabler/icons-react"
 
 import { NextLink } from "@mantine/next"
-import { usersData } from "@/pages/api/users"
+import { UsersData } from "@/pages/api/users"
 
 interface UsersStackProps {
-  userData: usersData[]
+  userData: UsersData[]
 }
 
-export default function UsersStack({ userData }: UsersStackProps) {
+export function UsersStack({ userData }: UsersStackProps) {
   const rows = userData?.map((item) => (
     <tr key={item.name}>
       <td>
         <Group spacing="sm">
-            <Avatar size={40} src={item.avatar} radius={40} />
+          <Avatar size={40} src={item.avatar} radius={40} />
           <div>
             <Text size="sm" weight={500}>
               {item.name}

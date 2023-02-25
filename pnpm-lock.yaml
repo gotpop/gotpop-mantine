@@ -4,6 +4,7 @@ specifiers:
   '@emotion/react': ^11.10.6
   '@emotion/server': ^11.10.0
   '@mantine/core': ^5.10.4
+  '@mantine/ds': ^5.10.4
   '@mantine/hooks': ^5.10.4
   '@mantine/next': ^5.10.4
   '@next/font': 13.1.6
@@ -32,6 +33,7 @@ dependencies:
   '@emotion/react': 11.10.6_pmekkgnqduwlme35zpnqhenc34
   '@emotion/server': 11.10.0
   '@mantine/core': 5.10.4_xgfpbscinl7gpxk3zixgsno7yu
+  '@mantine/ds': 5.10.4_zvr3twhaqlaxovla5vk46k3pgm
   '@mantine/hooks': 5.10.4_react@18.2.0
   '@mantine/next': 5.10.4_pnokhhiiffeanlj7xihut5qdrq
   '@next/font': 13.1.6
@@ -906,6 +908,23 @@ packages:
     transitivePeerDependencies:
       - '@emotion/react'
       - '@types/react'
+    dev: false
+
+  /@mantine/ds/5.10.4_zvr3twhaqlaxovla5vk46k3pgm:
+    resolution: {integrity: sha512-nJy0uiN6bJ6Qa85GeK8dbAkwikIfq7dmqZ5i543dZCSin6wTFgOMQeFhg0MkIV7Ke4cPpnHEpj+KrQKRSZ2BnQ==}
+    peerDependencies:
+      '@mantine/core': 5.10.4
+      '@mantine/hooks': 5.10.4
+      '@mantine/prism': 5.10.4
+      '@tabler/icons': '*'
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@mantine/core': 5.10.4_xgfpbscinl7gpxk3zixgsno7yu
+      '@mantine/hooks': 5.10.4_react@18.2.0
+      '@mantine/utils': 5.10.4_react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@mantine/hooks/5.10.4_react@18.2.0:

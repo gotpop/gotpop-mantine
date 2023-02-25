@@ -10,16 +10,10 @@ import useSWR from "swr"
 export default function Article() {
   const { query } = useRouter()
   const { id } = query
-  const { data, isLoading, error } = useSWR(`/api/article/${id}`, fetcher)
+  const { data: articleData, isLoading, error } = useSWR(`/api/article/${id}`, fetcher)
 
-  return (
-    <Layout>
-      <>
-        {data?.articleData && <Title mb={40}>{data?.articleData.title}</Title>}
-        {isLoading && <Text>Loading...</Text>}
-        {error && <Text>Error: {error}</Text>}
-        {data?.articleData && <ArticleItem articleData={data.articleData} />}
-      </>
-    </Layout>
-  )
+  const article = <ArticleItem articleData={articleData} />
+  const loading = <Title order={1}>Loading...</Title>
+
+  return <Layout>{articleData ? article : isLoading ? loading : null}</Layout>
 }
