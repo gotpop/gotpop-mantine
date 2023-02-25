@@ -8,7 +8,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export default function Layout({ children }: Props) {
+export function Layout({ children }: Props) {
   return (
     <>
       <Head>
@@ -25,8 +25,8 @@ export default function Layout({ children }: Props) {
           main: {
             backgroundColor: "whitesmoke",
             minHeight: "100vh",
-            minWidth: "100vw",
-          },
+            minWidth: "100vw"
+          }
         }}
       >
         {children}

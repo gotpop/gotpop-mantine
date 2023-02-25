@@ -1,10 +1,10 @@
-import Layout from "@/components/Layout"
 import useSWR from "swr"
+
+import { Layout } from "@/components/Layout"
 import { SimpleGrid, Container } from "@mantine/core"
 import { ArticlesDataType } from "./api/articles"
-import ArticleItem from "@/components/Article/Article"
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
+import { ArticleItem } from "@/components/Article/Article"
+import { fetcher } from "@/utils/fetcher"
 
 export default function Articles() {
   const { data: articlesData, isLoading, error } = useSWR("/api/articles", fetcher)
