@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { usersData } from "@/data/users"
-import type { usersData as usersDataType } from "../users"
+import type { UsersData as usersDataType } from "../users"
 
 export default function handlePerson(req: NextApiRequest, res: NextApiResponse) {
   const { query } = req

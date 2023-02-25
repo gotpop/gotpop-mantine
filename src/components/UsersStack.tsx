@@ -8,7 +8,6 @@ import {
   IconTrash
 } from "@tabler/icons-react"
 
-import { NextLink } from "@mantine/next"
 import { UsersData } from "@/pages/api/users"
 
 interface UsersStackProps {
