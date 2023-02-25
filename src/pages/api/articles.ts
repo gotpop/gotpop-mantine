@@ -8,10 +8,6 @@ export type ArticlesDataType = {
     id: string;
 }
 
-export type Data = {
-    articlesdata: ArticlesDataType[]
-}
-
-export default function handleArticles(req: NextApiRequest, res: NextApiResponse<Data>) {
-    res.status(200).json({ articlesdata: articlesdata })
+export default function handleArticles(req: NextApiRequest, res: NextApiResponse<ArticlesDataType[]>) {
+    res.status(200).json(articlesdata)
 }
