@@ -1,8 +1,7 @@
-import { AppShell } from "@mantine/core"
 import Head from "next/head"
-import FooterItem from "./Footer"
-import HeaderItem from "./Header"
-import { NavBarItem } from "./NavBar/NavBar"
+import { AppShell } from "@mantine/core"
+import { FooterItem } from "./Footer"
+import { HeaderItem } from "./Header/Header"
 
 type Props = {
   children: React.ReactNode
@@ -19,7 +18,6 @@ export function Layout({ children }: Props) {
       </Head>
       <AppShell
         header={<HeaderItem />}
-        navbar={<NavBarItem />}
         footer={<FooterItem />}
         styles={{
           main: {
