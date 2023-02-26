@@ -4,18 +4,20 @@ const useStyles = createStyles((theme) => ({
   hero: {
     position: "relative",
     backgroundImage:
-      "url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)",
+      "url(https://images.unsplash.com/photo-1547234935-80c7145ec969?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3216&q=80)",
+    // backgroundImage:
+    //   "url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)",
     backgroundSize: "cover",
-    backgroundPosition: "center"
+    backgroundPosition: "bottom center"
   },
 
   container: {
-    height: 700,
+    height: 800,
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-end",
     alignItems: "flex-start",
-    paddingBottom: theme.spacing.xl * 6,
+    paddingBottom: theme.spacing.xl * 10,
     zIndex: 1,
     position: "relative",
 
@@ -72,14 +74,20 @@ export function HeroContentLeft() {
         zIndex={0}
       />
       <Container className={classes.container}>
-        <Title className={classes.title}>A fully featured React components library</Title>
+        <Title className={classes.title}>Mission to Mars</Title>
         <Text className={classes.description} size="xl" mt="xl">
-          Build fully functional accessible web applications faster than ever – Mantine includes more than 120
-          customizable components and hooks to cover you in any situation
+          Join SpaceX and NASA on a mission to Mars. We are looking for the best and brightest to join us in
+          building the future of space exploration.
         </Text>
 
-        <Button variant="gradient" size="xl" radius="xl" className={classes.control}>
-          Get started
+        <Button
+          variant="gradient"
+          gradient={{ from: "orange", to: "red" }}
+          size="xl"
+          radius="xl"
+          className={classes.control}
+        >
+          Join Us
         </Button>
       </Container>
     </div>

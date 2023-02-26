@@ -65,6 +65,7 @@ const useStyles = createStyles((theme) => ({
 
 export function FeaturesCards() {
   const { classes, theme } = useStyles()
+
   const features = mockdata.map((feature) => (
     <Card key={feature.title} shadow="md" radius="md" className={classes.card} p="xl">
       <feature.icon size={50} stroke={2} color={theme.fn.primaryColor()} />
@@ -76,16 +77,17 @@ export function FeaturesCards() {
       </Text>
     </Card>
   ))
+
   return (
-    <Container size="lg" py="xl">
-      <Group position="center">
+    <Container size="lg" px="xl" py="xl">
+      <Group position="center" mt="20">
         <Badge variant="filled" size="lg">
-          Best company ever
+          Recruting Now
         </Badge>
       </Group>
 
       <Title order={2} className={classes.title} align="center" mt="sm">
-        Integrate effortlessly with any technology stack
+        Strike into the unknown
       </Title>
 
       <Text color="dimmed" className={classes.description} align="center" mt="md">

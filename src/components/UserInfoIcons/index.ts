@@ -1,0 +1,1 @@
+export { UserInfoIcons } from './UserInfoIcons';

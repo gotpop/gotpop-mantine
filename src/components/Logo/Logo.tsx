@@ -1,6 +1,7 @@
 import { Title } from "@mantine/core"
 import { NextLink } from "@mantine/next"
 import { Icon3dCubeSphere } from "@tabler/icons-react"
+import { SpaceXIcon } from "../SocialButtons/SpaceXIcon"
 import { useStyles } from "./useStyles"
 
 export function Logo() {
@@ -9,8 +10,9 @@ export function Logo() {
   return (
     <NextLink href={"/"} legacyBehavior className={classes.link}>
       <Title order={3} className={classes.logo}>
-        <Icon3dCubeSphere size={28} />
-        <span className={classes.text}>Interview</span>
+        {/* <Icon3dCubeSphere size={28} />
+        <span className={classes.text}>Interview</span> */}
+        <SpaceXIcon />
       </Title>
     </NextLink>
   )
