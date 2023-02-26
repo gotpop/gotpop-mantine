@@ -1,2 +1,1 @@
-export { GoogleIcon } from './GoogleIcon';
-export { GoogleButton } from './SocialButtons';
+export { GoogleButton, GitHubButton } from './SocialButtons';

@@ -1,6 +1,7 @@
 import { ButtonProps, Button } from "@mantine/core"
 import { signIn } from "next-auth/react"
 import { GoogleIcon } from "./GoogleIcon"
+import { GitHubIcon } from "./GitHubIcon"
 
 export function GoogleButton(props: ButtonProps) {
   return (
@@ -18,7 +19,7 @@ export function GitHubButton(props: ButtonProps) {
   return (
     <Button
       onClick={() => signIn("github", { callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/account` })}
-      leftIcon={<GoogleIcon />}
+      leftIcon={<GitHubIcon />}
       variant="default"
       color="gray"
       {...props}
