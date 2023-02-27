@@ -1,4 +1,6 @@
+import { imgPaths } from "@/utils/imgPaths"
 import { Radio, SimpleGrid, Title, Text } from "@mantine/core"
+import { IconActivity } from "@tabler/icons-react"
 import React from "react"
 import { useStyles } from "./useStep1Styles"
 
@@ -7,13 +9,13 @@ type Props = {
 }
 
 const radioData = [
-  { id: 1, value: "launch", label: "Liam", description: "Chance of survival" },
-  { id: 2, value: "ng", label: "Angular", description: "Chance of survival" },
-  { id: 3, value: "vue", label: "Vue", description: "Chance of survival" }
+  { id: 1, value: "launch", label: "Liam", description: "Chance of survival", img: imgPaths.img1 },
+  { id: 2, value: "ng", label: "Angular", description: "Chance of survival", img: imgPaths.img1 },
+  { id: 3, value: "vue", label: "Vue", description: "Chance of survival", img: imgPaths.img1 }
 ]
 
-const RadioItem = ({ value, label, description }: any) => {
-  const { classes } = useStyles()
+const RadioItem = ({ value, label, description, img }: any) => {
+  const { classes } = useStyles(img)
 
   return (
     <Radio
@@ -26,6 +28,7 @@ const RadioItem = ({ value, label, description }: any) => {
         labelWrapper: classes.labelWrapper,
         radio: classes.radio
       }}
+      icon={IconActivity}
       label={
         <>
           <Title order={1}>{label}</Title>
@@ -48,6 +51,7 @@ export default function Step1({ form }: Props) {
       label="Select your favorite framework/library"
       description="This is anonymous"
       withAsterisk
+      size="xl"
       {...form.getInputProps("radio", { type: "checkbox" })}
     >
       <SimpleGrid

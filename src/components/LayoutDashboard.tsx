@@ -1,8 +1,7 @@
 import Head from "next/head"
+
 import { AppShell } from "@mantine/core"
-import { FooterItem } from "./Footer/Footer"
 import { HeaderItem } from "./Header/Header"
-import { NavBarItem } from "./NavBarItem"
 import { SideNav } from "./SideNav"
 
 type Props = {

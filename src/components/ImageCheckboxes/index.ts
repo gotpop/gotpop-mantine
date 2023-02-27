@@ -1,1 +1,0 @@
-export { ImageCheckboxes } from './ImageCheckboxes';

@@ -1,27 +1,34 @@
 import { MantineTheme, createStyles } from "@mantine/core"
+import { relative } from "path"
 
-export const useStyles = createStyles((theme: MantineTheme) => ({
+export const useStyles = createStyles((theme: MantineTheme, img) => ({
     root: {
         display: "flex",
         flexDirection: "column",
-        backgroundColor: 'red',
+        borderRadius: theme.radius.lg,
+        overflow: "hidden",
+        dropShadow: theme.shadows.lg,
 
     },
     label: {
         display: "flex",
         flexDirection: "column",
-        backgroundColor: 'yellow',
+        backgroundColor: theme.colors.gray[0],
         minHeight: '100%',
         cursor: "pointer",
+        backgroundImage: `url(${img})`,
+        backgroundSize: "cover",
     },
     radio: {
-        position: "absolute"
+        position: 'relative'
     },
     body: {
-        display: "flex"
+        position: 'relative'
     },
     inner: {
-        display: "flex"
+        position: "absolute",
+        right: '0',
+        margin: theme.spacing.md,
     },
     labelWrapper: {
         display: "flex",
