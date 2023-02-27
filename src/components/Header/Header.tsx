@@ -16,12 +16,6 @@ export function HeaderItem({ wrapperCondition = false }) {
     </NextLink>
   )
 
-  const account = () => (
-    <NextLink href="/mission-control" color="gray" legacyBehavior className={classes.link}>
-      Mission Control
-    </NextLink>
-  )
-
   return (
     <Header height={60} p="md" fixed={false} className={classes.header}>
       <ConditionalWrapper
@@ -35,10 +29,7 @@ export function HeaderItem({ wrapperCondition = false }) {
         <>
           <Logo />
           <Group position="right">
-            {session ? account() : login()}
-            <NextLink href="/faqs" color="gray" legacyBehavior className={classes.link}>
-              Faqs
-            </NextLink>
+            {session ? null : login()}
             <UserMenu />
           </Group>
         </>

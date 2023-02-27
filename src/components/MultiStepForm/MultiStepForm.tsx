@@ -18,11 +18,11 @@ export const MultiStepForm = () => {
   return (
     <>
       <Stepper active={active} breakpoint="sm">
-        <Stepper.Step label="Choose a mission" description="Step 1">
+        <Stepper.Step label="Mission" description="Step 1">
           <Step1 form={form} />
         </Stepper.Step>
 
-        <Stepper.Step label="First step" description="Step 2">
+        <Stepper.Step label="Final wishes" description="Step 2">
           <Step2 form={form} />
         </Stepper.Step>
 

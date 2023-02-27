@@ -1,5 +1,4 @@
 import { MantineTheme, createStyles } from "@mantine/core"
-import { relative } from "path"
 
 export const useStyles = createStyles((theme: MantineTheme, img) => ({
     root: {

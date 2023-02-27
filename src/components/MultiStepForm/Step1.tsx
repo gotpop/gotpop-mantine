@@ -67,14 +67,8 @@ const radioData = [
   }
 ]
 
-const icons = {
-  up: IconArrowUpRight,
-  down: IconArrowDownRight
-}
-
 const RadioItem = ({ value, label, description, img, stat }: any) => {
   const { classes } = useStyles(img)
-  // const Icon = icons[stat.icon]
 
   return (
     <Radio
