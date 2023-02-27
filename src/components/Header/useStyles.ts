@@ -1,10 +1,16 @@
 import { MantineTheme, createStyles } from "@mantine/core"
 
 const styles = (theme: MantineTheme) => ({
+    header: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
     inner: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        flex: '1 1 100%',
     },
     link: {
         display: 'block',

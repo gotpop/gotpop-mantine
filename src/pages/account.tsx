@@ -19,7 +19,7 @@ export default function Login() {
           Log out
         </Button>
 
-        {session && <UserInfoIcons session={session} />}
+        {session && <UserInfoIcons />}
       </Container>
     </Layout>
   )

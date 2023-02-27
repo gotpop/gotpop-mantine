@@ -1,0 +1,1 @@
+export { ArticleCardImage } from './ArticleCardImage';

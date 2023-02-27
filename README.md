@@ -38,3 +38,5 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 https://console.cloud.google.com/apis/credentials/consent?project=gotpop-shop-auth-local
+
+https://github.com/nextauthjs/next-auth/discussions/2808

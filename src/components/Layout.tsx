@@ -85,7 +85,7 @@ export function Layout({ children }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AppShell
-        header={<HeaderItem />}
+        header={<HeaderItem wrapperCondition />}
         footer={<FooterItem {...footerData} />}
         styles={{
           main: {
