@@ -5,9 +5,9 @@ export const useStyles = createStyles((theme: MantineTheme, img) => ({
     root: {
         display: "flex",
         flexDirection: "column",
-        borderRadius: theme.radius.lg,
+        borderRadius: theme.radius.md,
         overflow: "hidden",
-        dropShadow: theme.shadows.lg,
+        boxShadow: theme.shadows.sm,
 
     },
     label: {
@@ -17,22 +17,29 @@ export const useStyles = createStyles((theme: MantineTheme, img) => ({
         minHeight: '100%',
         cursor: "pointer",
         backgroundImage: `url(${img})`,
+        backgroundPosition: "center right",
         backgroundSize: "cover",
+        padding: theme.spacing.md,
+        justifyContent: "space-between",
     },
     radio: {
-        position: 'relative'
+        border: 'none',
+        backgroundColor: 'transparent',
     },
     body: {
         position: 'relative'
+    },
+    box: {
+        zIndex: 1
     },
     inner: {
         position: "absolute",
         right: '0',
         margin: theme.spacing.md,
+        zIndex: 1,
     },
     labelWrapper: {
         display: "flex",
-        backgroundColor: 'green',
         width: '100%',
         minHeight: 400,
     }

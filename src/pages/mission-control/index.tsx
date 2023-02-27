@@ -9,7 +9,7 @@ export default function MissionControl() {
 
   return (
     <LayoutDashboard>
-      <Container size={800} p={20} fluid={true}>
+      <Container my="md">
         <Title order={1} mb={50}>
           Mission Control
         </Title>
