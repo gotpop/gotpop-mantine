@@ -1,6 +1,6 @@
 import { AuthenticationForm } from "@/components/AuthenticationForm"
 import { Layout } from "@/components/Layout"
-import { Button, Container, Paper, Title } from "@mantine/core"
+import { Container } from "@mantine/core"
 import { signIn, signOut, useSession } from "next-auth/react"
 
 export default function Login() {

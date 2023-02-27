@@ -10,7 +10,7 @@ import {
   IconDeviceAnalytics
 } from "@tabler/icons-react"
 import { NextLink } from "@mantine/next"
-import { UserInfoIcons } from "./UserInfoIcons"
+import { UserInfoIcons } from "../UserInfoIcons"
 
 const useStyles = createStyles<string, { collapsed?: boolean }>((theme, params, getRef) => {
   const icon: string = getRef("icon")
