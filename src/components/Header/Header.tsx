@@ -10,8 +10,6 @@ export function HeaderItem({ wrapperCondition = false }) {
   const { data: session, status } = useSession()
   const { classes } = useStyles()
 
-  console.log("status :", status)
-
   const login = () => (
     <NextLink href="/login" color="gray" legacyBehavior className={classes.link}>
       Join us
