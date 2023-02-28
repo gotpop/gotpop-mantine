@@ -13,8 +13,7 @@ export default async function handleMisson(req: NextApiRequest, res: NextApiResp
     }
 
     if (!session) {
-        res.status(401).json({ message: "You must be logged in." });
-        return;
+        return res.status(401).json({ message: "You must be logged in." })
     }
 
     const { user } = session
