@@ -1,7 +1,6 @@
+import { Box, Center, Group, Overlay, Radio, RingProgress, SimpleGrid, Text, Title } from "@mantine/core"
+import { IconCheck, IconSkull } from "@tabler/icons-react"
 import { imgPaths } from "@/utils/imgPaths"
-import { Radio, SimpleGrid, Title, Text, Center, Group, RingProgress, Box, Overlay } from "@mantine/core"
-import { IconSkull, IconCheck } from "@tabler/icons-react"
-import React from "react"
 import { useStyles } from "./useStep1Styles"
 
 type Props = {
@@ -14,7 +13,7 @@ const radioData = [
     value: "launch",
     label: "Mars Test Launch",
     description:
-      "In the tech world we like to say 'move fast and break things' ... only this time we're talking you.",
+      "In the tech world we like to say 'move fast and break things' ... only this time we're talking about you.",
     img: imgPaths.img2,
     stat: {
       label: "Heroic deaths",

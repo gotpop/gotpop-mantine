@@ -17,10 +17,12 @@ export default function StepControls({ active, nextStep, prevStep }: Props) {
           Back
         </Button>
       )}
-      {active !== 4 && <Button onClick={nextStep}>Next step</Button>}
-      <Button type="submit" variant="gradient" gradient={{ from: "teal", to: "lime", deg: 105 }}>
-        Submit
-      </Button>
+      {active !== 3 && active !== 4 && <Button onClick={nextStep}>Next step</Button>}
+      {active === 3 && (
+        <Button type="submit" variant="gradient" gradient={{ from: "teal", to: "lime", deg: 105 }}>
+          Submit
+        </Button>
+      )}
     </Group>
   )
 }

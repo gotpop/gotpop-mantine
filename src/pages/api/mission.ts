@@ -20,11 +20,11 @@ export default async function missionHandler(req: NextApiRequest, res: NextApiRe
     const sessionEmail = user?.email ? user?.email : undefined
 
     if (req.method === 'GET') {
-        const makeCartItem = await prisma.mission.findUnique({
+        const missionItem = await prisma.mission.findUnique({
             where: { userId: sessionEmail }
         })
 
-        return res.status(200).json(makeCartItem)
+        return res.status(200).json(missionItem)
     }
 
     if (req.method === 'POST') {
