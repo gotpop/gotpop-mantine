@@ -1,4 +1,16 @@
-import { Box, Center, Group, Overlay, Radio, RingProgress, SimpleGrid, Text, Title } from "@mantine/core"
+import {
+  Box,
+  Center,
+  createStyles,
+  Group,
+  MantineTheme,
+  Overlay,
+  Radio,
+  RingProgress,
+  SimpleGrid,
+  Text,
+  Title
+} from "@mantine/core"
 import { IconCheck, IconSkull } from "@tabler/icons-react"
 import { imgPaths } from "@/utils/imgPaths"
 import { useStyles } from "./useStep1Styles"
@@ -115,11 +127,10 @@ export default function Step1({ form }: Props) {
     <Radio.Group
       required
       defaultValue="vue"
-      defaultChecked={false}
       name="chooseAMission"
       label="Choose the mission of a lifetime"
-      description="This is anonymous"
-      withAsterisk
+      description="What have you got to lose?"
+      offset={40}
       size="xl"
       {...form.getInputProps("missionType", { type: "checkbox" })}
     >

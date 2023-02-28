@@ -12,8 +12,6 @@ type Props = {
 }
 
 export default function MissionControl({ sessionData, missionItem }: Props) {
-  console.log("sessionData, missionItem :", sessionData, missionItem)
-
   return (
     <LayoutDashboard>
       <Container my="xl">
@@ -51,7 +49,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const sessionEmail = user?.email ? user?.email : undefined
 
   const missionItem = await prisma.mission.findUnique({
-    where: { userId: sessionEmail }
+    where: { userId: sessionEmail },
+    select: {
+      username: true,
+      password: true,
+      name: true,
+      email: true,
+      website: true,
+      github: true,
+      missionType: true
+    }
   })
 
   return {

@@ -1,4 +1,4 @@
-import { Stepper } from "@mantine/core"
+import { Button, createStyles, Group, MantineTheme, Stepper } from "@mantine/core"
 import { useForm } from "@mantine/form"
 import { Mission } from "@prisma/client"
 import axios from "axios"
@@ -12,6 +12,10 @@ import Step3 from "./Step3"
 import Step4 from "./Step4"
 import Step5 from "./Step5"
 import StepControls from "./StepControls"
+import { IconCheck, IconChevronLeft, IconChevronRight, IconRocket } from "@tabler/icons-react"
+
+import { useState } from "react"
+import { useRouter } from "next/router"
 
 type Values = {
   username: string
@@ -23,32 +27,59 @@ type Values = {
   missionType: string
 }
 
+export const useStyles = createStyles((theme: MantineTheme) => ({
+  steps: {
+    marginBottom: theme.spacing.xl
+  }
+}))
+
 export const MultiStepForm = () => {
+  const router = useRouter()
+  const { classes } = useStyles()
+  // const { active, nextStep, prevStep } = useStepControl(form)
   const form = useForm(formConfig)
-  const { active, nextStep, prevStep } = useStepControl(form)
+  const [isLoading, setIsLoading] = useState(false)
+  const [active, setActive] = useState(1)
 
   const handleSubmit = async (values: Values) => {
-    console.log(values)
-    axios.post("/api/mission", values)
+    setIsLoading(true)
+    await axios.post("/api/mission", values)
+    setIsLoading(false)
+
+    router.push("/mission-control")
   }
+
+  const nextStep = () => setActive((current) => (current < 4 ? current + 1 : current))
+  const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current))
 
   return (
     <>
       <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
-        <Stepper active={active} breakpoint="sm">
-          <Stepper.Step label="Mission" description="Step 1">
+        <Stepper
+          active={active}
+          breakpoint="sm"
+          size="md"
+          onStepClick={setActive}
+          contentPadding="xl"
+          allowNextStepsSelect={false}
+          completedIcon={<IconCheck />}
+          classNames={{
+            steps: classes.steps
+          }}
+        >
+          <Stepper.Step label="Mission" description="Fight or flight">
             <Step1 form={form} />
           </Stepper.Step>
 
-          <Stepper.Step label="Final wishes" description="Step 2">
+          <Stepper.Step label="Contact" description="Next of kin">
             <Step2 form={form} />
           </Stepper.Step>
 
-          <Stepper.Step label="Second step" description="Step 3">
+          <Stepper.Step label="Notifcations" description="NFT gravestone">
             <Step3 form={form} />
           </Stepper.Step>
 
-          <Stepper.Step label="Final step" description="Step 4">
+          <Stepper.Step label="Preferences" description="Final wishes" loading={isLoading}>
             <Step4 form={form} />
           </Stepper.Step>
 
@@ -57,7 +88,32 @@ export const MultiStepForm = () => {
           </Stepper.Completed>
         </Stepper>
 
-        <StepControls active={active} nextStep={nextStep} prevStep={prevStep} />
+        <Group position="center" mt="xl">
+          {active !== 0 && (
+            <Button size="xl" variant="default" onClick={prevStep} leftIcon={<IconChevronLeft />}>
+              Back
+            </Button>
+          )}
+          {active !== 4 && (
+            <Button size="xl" onClick={nextStep} rightIcon={<IconChevronRight />}>
+              Next step
+            </Button>
+          )}
+          {active === 4 && (
+            <Button
+              loading={isLoading}
+              type="submit"
+              variant="gradient"
+              gradient={{ from: "teal", to: "lime", deg: 105 }}
+              size="xl"
+              rightIcon={<IconRocket />}
+            >
+              Go!
+            </Button>
+          )}
+        </Group>
+
+        {/* <StepControls active={active} nextStep={nextStep} prevStep={prevStep} isLoading={isLoading} /> */}
       </form>
     </>
   )

@@ -7,6 +7,7 @@ export const useStyles = createStyles((theme: MantineTheme, img) => ({
         borderRadius: theme.radius.md,
         overflow: "hidden",
         boxShadow: theme.shadows.sm,
+        // marginTop: theme.spacing.xl,
 
     },
     label: {
