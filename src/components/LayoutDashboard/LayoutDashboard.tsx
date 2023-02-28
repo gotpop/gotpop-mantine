@@ -23,7 +23,6 @@ export function LayoutDashboard({ children }: Props) {
         navbar={<SideNav />}
         padding="md"
         styles={(theme) => ({
-          body: { minHeight: "100vh" },
           main: { padding: 0, backgroundColor: theme.colors.gray[0] }
         })}
       >

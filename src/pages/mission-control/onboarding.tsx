@@ -1,11 +1,16 @@
-import { Layout } from "@/components/Layout"
 import { LayoutDashboard } from "@/components/LayoutDashboard"
-import { Title } from "@mantine/core"
+import { MultiStepForm } from "@/components/MultiStepForm"
+import { Container, Title } from "@mantine/core"
 
 export default function Onboarding() {
   return (
     <LayoutDashboard>
-      <Title order={1}>Onboarding</Title>
+      <Container my="xl">
+        <Title order={1} mb={50}>
+          Onboarding
+        </Title>
+        <MultiStepForm />
+      </Container>
     </LayoutDashboard>
   )
 }

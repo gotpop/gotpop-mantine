@@ -12,7 +12,6 @@ export default function MissionControl() {
         <Title order={1} mb={50}>
           Mission Control
         </Title>
-        <MultiStepForm />
       </Container>
     </LayoutDashboard>
   )
