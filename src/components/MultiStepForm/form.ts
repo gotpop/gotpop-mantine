@@ -6,7 +6,43 @@ export const formConfig = {
         email: "",
         website: "",
         github: "",
-        missionType: "vue"
+        missionType: "vue",
+        contacts: [{
+            id: "1",
+            checked: false,
+            title: "@mantine/core",
+            description: "Core components library: inputs, buttons, overlays, etc."
+        },
+        {
+            id: "2",
+            checked: false,
+            title: "@mantine/core",
+            description: "Core components library: inputs, buttons, overlays, etc."
+        },
+        {
+            id: "3",
+            checked: false,
+            title: "@mantine/core",
+            description: "Core components library: inputs, buttons, overlays, etc."
+        },
+        {
+            id: "4",
+            checked: false,
+            title: "@mantine/core",
+            description: "Core components library: inputs, buttons, overlays, etc."
+        },
+        {
+            id: "5",
+            checked: false,
+            title: "@mantine/core",
+            description: "Core components library: inputs, buttons, overlays, etc."
+        },
+        {
+            id: "6",
+            checked: false,
+            title: "@mantine/core",
+            description: "Core components library: inputs, buttons, overlays, etc."
+        }]
     },
 
     // validate: (values) => {
