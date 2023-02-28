@@ -18,6 +18,9 @@ export default function StepControls({ active, nextStep, prevStep }: Props) {
         </Button>
       )}
       {active !== 4 && <Button onClick={nextStep}>Next step</Button>}
+      <Button type="submit" variant="gradient" gradient={{ from: "teal", to: "lime", deg: 105 }}>
+        Submit
+      </Button>
     </Group>
   )
 }

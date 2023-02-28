@@ -6,7 +6,7 @@ export const formConfig = {
         email: "",
         website: "",
         github: "",
-        radio: "vue"
+        missionType: "vue"
     },
 
     // validate: (values) => {

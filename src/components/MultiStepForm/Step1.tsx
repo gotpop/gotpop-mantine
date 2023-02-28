@@ -1,21 +1,8 @@
 import { imgPaths } from "@/utils/imgPaths"
-import {
-  Radio,
-  SimpleGrid,
-  Title,
-  Text,
-  Center,
-  Group,
-  Paper,
-  RingProgress,
-  Box,
-  Overlay
-} from "@mantine/core"
-import { IconActivity, IconSkull, IconCheck } from "@tabler/icons-react"
-import { stat } from "fs"
+import { Radio, SimpleGrid, Title, Text, Center, Group, RingProgress, Box, Overlay } from "@mantine/core"
+import { IconSkull, IconCheck } from "@tabler/icons-react"
 import React from "react"
 import { useStyles } from "./useStep1Styles"
-import { IconArrowUpRight, IconArrowDownRight } from "@tabler/icons-react"
 
 type Props = {
   form: any
@@ -135,7 +122,7 @@ export default function Step1({ form }: Props) {
       description="This is anonymous"
       withAsterisk
       size="xl"
-      {...form.getInputProps("radio", { type: "checkbox" })}
+      {...form.getInputProps("missionType", { type: "checkbox" })}
     >
       <SimpleGrid
         cols={3}
