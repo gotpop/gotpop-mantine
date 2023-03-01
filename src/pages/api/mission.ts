@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth/next"
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/lib/prisma'
+import { Prisma } from '@prisma/client'
 
 export default async function missionHandler(req: NextApiRequest, res: NextApiResponse) {
     const session = await getServerSession(req, res, authOptions)
@@ -29,13 +30,17 @@ export default async function missionHandler(req: NextApiRequest, res: NextApiRe
     if (req.method === 'POST') {
         const { body } = req
         const { missionType, contacts, nft, finalWish } = body
+        console.log('contacts :', contacts);
+
+        // const theContacts = JSON.stringify(contacts)
+
 
         const makeMissionItem = await prisma.mission.upsert({
             where: { userId: sessionEmail },
             update: {
                 missionType,
-                contacts,
-                nft,
+                contacts: contacts,
+                nft: nft,
                 finalWish
             },
             create: {
