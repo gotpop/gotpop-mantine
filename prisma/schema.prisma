@@ -57,7 +57,7 @@ model Mission {
   id          String   @id @default(cuid())
   missionType String?
   contacts    Json[]
-  nft         Json[]
+  nft         Json?
   finalWish   String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
