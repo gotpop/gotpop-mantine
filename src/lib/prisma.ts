@@ -7,10 +7,10 @@ declare global {
 const prisma = globalThis.prisma || new PrismaClient()
 if (process.env.NODE_ENV !== "production") globalThis.prisma = prisma
 
-const MissionWithContent = Prisma.validator<Prisma.MissionArgs>()({
-    include: { contacts: true, nft: true }
-})
+// const MissionWithContent = Prisma.validator<Prisma.MissionArgs>()({
+//     include: { contacts: true, nft: true }
+// })
 
-export type MissionWithContent = Prisma.MissionGetPayload<typeof MissionWithContent>
+// export type MissionWithContent = Prisma.MissionGetPayload<typeof MissionWithContent>
 
 export default prisma

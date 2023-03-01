@@ -28,7 +28,7 @@ export default async function missionHandler(req: NextApiRequest, res: NextApiRe
 
     if (req.method === 'POST') {
         const { body } = req
-        const { missionType, contacts, nft, finalWish } = body
+        const { missionType, contacts, nft, finalWish }: any = body
 
         const makeMissionItem = await prisma.mission.upsert({
             where: { userId: sessionEmail },
@@ -36,7 +36,7 @@ export default async function missionHandler(req: NextApiRequest, res: NextApiRe
                 finalWish,
                 missionType,
                 nft: {
-                    create: {
+                    update: {
                         logo: nft.logo,
                         tagline: nft.tagline,
                         background: nft.background
