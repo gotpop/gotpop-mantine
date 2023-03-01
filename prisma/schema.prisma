@@ -55,9 +55,9 @@ model VerificationToken {
 
 model Mission {
   id          String   @id @default(cuid())
-  missionType String
+  missionType String?
   contacts    Json?
-  nft         Nft?
+  nft         Json?
   finalWish   String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -66,14 +66,14 @@ model Mission {
   // Contact     Contact[]
 }
 
-model Nft {
-  id         String  @id @default(cuid())
-  logo       String
-  tagline    String
-  background String
-  mission    Mission @relation(fields: [missionId], references: [id])
-  missionId  String  @unique
-}
+// model Nft {
+//   id         String  @id @default(cuid())
+//   logo       String
+//   tagline    String
+//   background String
+//   mission    Mission @relation(fields: [missionId], references: [id])
+//   missionId  String  @unique
+// }
 
 // model Contact {
 //   id        String   @id @default(cuid())

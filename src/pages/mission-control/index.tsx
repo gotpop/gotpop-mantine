@@ -54,13 +54,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       finalWish: true,
       missionType: true,
       contacts: true,
-      nft: {
-        select: {
-          logo: true,
-          tagline: true,
-          background: true
-        }
-      }
+      nft: true
     }
   })
 

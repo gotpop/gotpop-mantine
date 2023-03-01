@@ -30,47 +30,24 @@ export default async function missionHandler(req: NextApiRequest, res: NextApiRe
         const { body } = req
         const { missionType, contacts, nft, finalWish }: any = body
 
-        console.log('contacts :', contacts);
-
         const makeMissionItem = await prisma.mission.upsert({
             where: { userId: sessionEmail },
             update: {
                 finalWish,
                 missionType,
                 contacts,
-                nft: {
-                    update: {
-                        logo: nft.logo,
-                        tagline: nft.tagline,
-                        background: nft.background
-                    }
-                },
+                nft,
             },
             create: {
                 finalWish,
                 missionType,
                 contacts,
-                nft: {
-                    create: {
-                        logo: nft.logo,
-                        tagline: nft.tagline,
-                        background: nft.background
-                    }
-                },
+                nft,
                 user: {
                     connect: { email: sessionEmail },
                 },
             },
         })
-
-        // const contactsData = await prisma.contact.createMany({
-        //     data: contacts,
-        //     connect: {
-        //         userId: sessionEmail
-        //     }
-
-        // })
-
 
         return res.status(200).json(makeMissionItem)
     }
