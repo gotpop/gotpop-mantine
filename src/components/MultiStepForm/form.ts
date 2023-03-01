@@ -1,48 +1,38 @@
 export const formConfig = {
     initialValues: {
-        username: "",
-        password: "",
-        name: "",
-        email: "",
-        website: "",
-        github: "",
         missionType: "vue",
-        contacts: [{
-            id: "1",
-            checked: false,
-            title: "@mantine/core",
-            description: "Core components library: inputs, buttons, overlays, etc."
+        contacts: [
+            {
+                id: "1",
+                active: false
+            },
+            {
+                id: "2",
+                active: false
+            },
+            {
+                id: "3",
+                active: false
+            },
+            {
+                id: "4",
+                active: false
+            },
+            {
+                id: "5",
+                active: false
+            },
+            {
+                id: "6",
+                active: false
+            }
+        ],
+        nft: {
+            logo: '',
+            tagline: '',
+            background: ''
         },
-        {
-            id: "2",
-            checked: false,
-            title: "@mantine/core",
-            description: "Core components library: inputs, buttons, overlays, etc."
-        },
-        {
-            id: "3",
-            checked: false,
-            title: "@mantine/core",
-            description: "Core components library: inputs, buttons, overlays, etc."
-        },
-        {
-            id: "4",
-            checked: false,
-            title: "@mantine/core",
-            description: "Core components library: inputs, buttons, overlays, etc."
-        },
-        {
-            id: "5",
-            checked: false,
-            title: "@mantine/core",
-            description: "Core components library: inputs, buttons, overlays, etc."
-        },
-        {
-            id: "6",
-            checked: false,
-            title: "@mantine/core",
-            description: "Core components library: inputs, buttons, overlays, etc."
-        }]
+        finalWish: ''
     },
 
     // validate: (values) => {

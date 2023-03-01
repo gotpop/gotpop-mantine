@@ -53,7 +53,7 @@ const radioData = [
     id: 3,
     value: "vue",
     label: "Mars Landing",
-    description: "You're alone. You drink recycled urine. This is your life.",
+    description: "You're alone. You drink recycled urine. This is your life now.",
     img: imgPaths.img3,
     stat: {
       label: "Heroic deaths",

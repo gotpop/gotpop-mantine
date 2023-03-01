@@ -1,39 +1,47 @@
-import { TextInput, PasswordInput, Container, Title, Text, SimpleGrid } from "@mantine/core"
+import { TextInput, PasswordInput, Container, Title, Text, SimpleGrid, Checkbox } from "@mantine/core"
+import { UseFormReturnType } from "@mantine/form"
+import { useState } from "react"
 import { CheckboxCard } from "./CheckboxCard"
 import { useStyles } from "./useStyles"
 
 type Props = {
-  form: any
+  form: UseFormReturnType<any>
 }
 
-const thData = [
+const contactsData = [
   {
     id: "1",
-    title: "@mantine/core",
+    active: false,
+    title: "Your accountant",
     description: "Core components library: inputs, buttons, overlays, etc."
   },
   {
     id: "2",
-    title: "@mantine/core",
+    active: false,
+    title: "The admin of your Mincraft server",
     description: "Core components library: inputs, buttons, overlays, etc."
   },
   {
     id: "3",
-    title: "@mantine/core",
+    active: false,
+    title: "Your Uber Eats driver",
     description: "Core components library: inputs, buttons, overlays, etc."
   },
   {
     id: "4",
-    title: "@mantine/core",
+    active: false,
+    title: "Tescos self service checkout",
     description: "Core components library: inputs, buttons, overlays, etc."
   },
   {
     id: "5",
-    title: "@mantine/core",
+    active: false,
+    title: "The guy who aproved your pr with a rocket emoji",
     description: "Core components library: inputs, buttons, overlays, etc."
   },
   {
     id: "6",
+    active: false,
     title: "@mantine/core",
     description: "Core components library: inputs, buttons, overlays, etc."
   }
@@ -42,7 +50,13 @@ const thData = [
 export default function Step2({ form }: Props) {
   const { classes } = useStyles()
 
-  const checks = thData.map((item, index) => <CheckboxCard key={item.id} {...item} />)
+  const checks = contactsData.map((item, index: number) => (
+    <Checkbox
+      {...form.getInputProps(`contacts.${index}.active`, { type: "checkbox" })}
+      key={item.id}
+      label={item.title}
+    />
+  ))
 
   return (
     <>

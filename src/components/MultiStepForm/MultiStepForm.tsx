@@ -1,4 +1,4 @@
-import { Button, createStyles, Group, MantineTheme, Stepper } from "@mantine/core"
+import { Button, Code, createStyles, Group, MantineTheme, Stepper } from "@mantine/core"
 import { useForm } from "@mantine/form"
 import { Mission } from "@prisma/client"
 import axios from "axios"
@@ -10,7 +10,6 @@ import Step1 from "./Step1"
 import Step2 from "./Step2"
 import Step3 from "./Step3"
 import Step4 from "./Step4"
-import Step5 from "./Step5"
 import StepControls from "./StepControls"
 import { IconCheck, IconChevronLeft, IconChevronRight, IconRocket } from "@tabler/icons-react"
 
@@ -84,7 +83,10 @@ export const MultiStepForm = () => {
           </Stepper.Step>
 
           <Stepper.Completed>
-            <Step5 form={form} />
+            <h1>Complete</h1>
+            <Code block mt="xl">
+              {JSON.stringify(form.values, null, 2)}
+            </Code>
           </Stepper.Completed>
         </Stepper>
 
