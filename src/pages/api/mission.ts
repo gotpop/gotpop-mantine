@@ -3,7 +3,6 @@ import { getServerSession } from "next-auth/next"
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/lib/prisma'
-import { Mission } from '@prisma/client'
 
 export default async function missionHandler(req: NextApiRequest, res: NextApiResponse) {
     const session = await getServerSession(req, res, authOptions)
@@ -29,27 +28,31 @@ export default async function missionHandler(req: NextApiRequest, res: NextApiRe
 
     if (req.method === 'POST') {
         const { body } = req
-        const { username, password, name, email, website, github, missionType }: Mission = body
+        const { missionType, contacts, nft, finalWish } = body
 
         const makeMissionItem = await prisma.mission.upsert({
             where: { userId: sessionEmail },
             update: {
-                username,
-                password,
-                name,
-                email,
-                website,
-                github,
+                finalWish,
                 missionType,
+                nft: {
+                    create: {
+                        logo: nft.logo,
+                        tagline: nft.tagline,
+                        background: nft.background
+                    }
+                },
             },
             create: {
-                username,
-                password,
-                name,
-                email,
-                website,
-                github,
+                finalWish,
                 missionType,
+                nft: {
+                    create: {
+                        logo: nft.logo,
+                        tagline: nft.tagline,
+                        background: nft.background
+                    }
+                },
                 user: {
                     connect: { email: sessionEmail },
                 },

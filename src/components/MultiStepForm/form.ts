@@ -3,27 +3,27 @@ export const formConfig = {
         missionType: "vue",
         contacts: [
             {
-                id: "1",
+                key: "1",
                 active: false
             },
             {
-                id: "2",
+                key: "2",
                 active: false
             },
             {
-                id: "3",
+                key: "3",
                 active: false
             },
             {
-                id: "4",
+                key: "4",
                 active: false
             },
             {
-                id: "5",
+                key: "5",
                 active: false
             },
             {
-                id: "6",
+                key: "6",
                 active: false
             }
         ],

@@ -51,13 +51,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const missionItem = await prisma.mission.findUnique({
     where: { userId: sessionEmail },
     select: {
-      username: true,
-      password: true,
-      name: true,
-      email: true,
-      website: true,
-      github: true,
-      missionType: true
+      finalWish: true,
+      missionType: true,
+      nft: {
+        select: {
+          logo: true,
+          tagline: true,
+          background: true
+        }
+      }
     }
   })
 
