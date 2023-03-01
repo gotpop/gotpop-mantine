@@ -16,15 +16,7 @@ import { IconCheck, IconChevronLeft, IconChevronRight, IconRocket } from "@table
 import { useState } from "react"
 import { useRouter } from "next/router"
 
-type Values = {
-  username: string
-  password: string
-  name: string
-  email: string
-  website: string
-  github: string
-  missionType: string
-}
+type MissionNoMeta = Omit<Mission, "id" | "createdAt" | "updatedAt" | "userId">
 
 export const useStyles = createStyles((theme: MantineTheme) => ({
   steps: {
@@ -40,7 +32,7 @@ export const MultiStepForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [active, setActive] = useState(1)
 
-  const handleSubmit = async (values: Values) => {
+  const handleSubmit = async (values: MissionNoMeta) => {
     setIsLoading(true)
     await axios.post("/api/mission", values)
     setIsLoading(false)

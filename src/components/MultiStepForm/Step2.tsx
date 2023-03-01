@@ -1,7 +1,5 @@
-import { TextInput, PasswordInput, Container, Title, Text, SimpleGrid, Checkbox } from "@mantine/core"
+import { Title, Text, SimpleGrid, Checkbox } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
-import { useState } from "react"
-import { CheckboxCard } from "./CheckboxCard"
 import { useStyles } from "./useStyles"
 
 type Props = {
