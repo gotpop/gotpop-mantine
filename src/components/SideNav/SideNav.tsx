@@ -15,8 +15,7 @@ import { useStyles } from "./useStyles"
 
 const ITEMS = [
   { id: 1, href: "/mission-control/onboarding", label: "Onboarding", Icon: IconRocket },
-  { id: 2, href: "/mission-control/profile", label: "Profile", Icon: IconRobot },
-  { id: 3, href: "/mission-control/settings", label: "Settings", Icon: IconSettings }
+  { id: 2, href: "/mission-control/profile", label: "Profile", Icon: IconRobot }
 ]
 
 export const SideNav: FC<{ className?: string }> = ({ className }) => {

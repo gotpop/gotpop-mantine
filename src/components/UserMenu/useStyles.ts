@@ -3,8 +3,6 @@ import { MantineTheme, createStyles } from "@mantine/core"
 export const useStyles = createStyles((theme) => ({
     header: {
         paddingTop: theme.spacing.sm,
-        // backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
-        // borderBottom: `1px solid ${theme.colorScheme === "dark" ? "transparent" : theme.colors.gray[2]}`,
         marginBottom: 0
     },
 
@@ -35,6 +33,10 @@ export const useStyles = createStyles((theme) => ({
 
     userActive: {
         backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white
+    },
+
+    link: {
+        textDecoration: "none"
     },
 
     tabs: {

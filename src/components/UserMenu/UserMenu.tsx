@@ -23,7 +23,7 @@ export function UserMenu() {
     <div className={classes.header}>
       <Container className={classes.mainSection}>
         <Group position="apart">
-          {/* <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" /> */}
+          <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
 
           <Menu
             width={260}
@@ -53,39 +53,28 @@ export function UserMenu() {
               </UnstyledButton>
             </Menu.Target>
             <Menu.Dropdown>
-              <NextLink href={"/faqs"} legacyBehavior>
-                <Menu.Item
-                  component="span"
-                  icon={<IconQuestionMark size={14} color={theme.colors.red[6]} stroke={1.5} />}
-                >
+              <NextLink href={"/faqs"} className={classes.link} legacyBehavior>
+                <Menu.Item component="span" icon={<IconQuestionMark size={14} stroke={2} />}>
                   FAQs
                 </Menu.Item>
               </NextLink>
 
               <Menu.Divider />
 
-              <NextLink href={"/mission-control"} legacyBehavior>
-                <Menu.Item
-                  component="span"
-                  icon={<IconDeviceAnalytics size={14} color={theme.colors.red[6]} stroke={1.5} />}
-                >
+              <NextLink href={"/mission-control"} className={classes.link} legacyBehavior>
+                <Menu.Item component="span" icon={<IconDeviceAnalytics size={14} stroke={1.5} />}>
                   Mission Control
                 </Menu.Item>
               </NextLink>
-              <NextLink href={"/mission-control/onboarding"} legacyBehavior>
-                <Menu.Item
-                  component="span"
-                  icon={<IconRocket size={14} color={theme.colors.green[6]} stroke={1.5} />}
-                >
+              <NextLink href={"/mission-control/onboarding"} className={classes.link} legacyBehavior>
+                <Menu.Item component="span" icon={<IconRocket size={14} stroke={1.5} />}>
                   Onboarding
                 </Menu.Item>
               </NextLink>
 
-              <Menu.Divider />
-
-              <NextLink href={"/mission-control/onboarding"} legacyBehavior>
+              <NextLink href={"/mission-control/profile"} className={classes.link} legacyBehavior>
                 <Menu.Item component="span" icon={<IconSettings size={14} stroke={1.5} />}>
-                  Account settings
+                  Profile
                 </Menu.Item>
               </NextLink>
 
