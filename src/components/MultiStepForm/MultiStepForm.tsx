@@ -34,9 +34,15 @@ export const MultiStepForm = () => {
 
   const handleSubmit = async (values: MissionNoMeta) => {
     setIsLoading(true)
-    await axios.post("/api/mission", JSON.stringify(values))
-    setIsLoading(false)
+    const stringData = JSON.stringify(values)
 
+    await axios.post("/api/mission", stringData, {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+
+    setIsLoading(false)
     router.push("/mission-control")
   }
 
