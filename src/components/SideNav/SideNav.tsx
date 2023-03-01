@@ -1,9 +1,8 @@
 import { FC } from "react"
 import Link from "next/link"
 import { useDisclosure } from "@mantine/hooks"
-import { createStyles, Navbar, Group, UnstyledButton, Tooltip, MediaQuery } from "@mantine/core"
+import { Navbar, Group, UnstyledButton, Tooltip, MediaQuery } from "@mantine/core"
 import {
-  IconSettings,
   IconArrowLeft,
   IconArrowRight,
   IconDeviceAnalytics,

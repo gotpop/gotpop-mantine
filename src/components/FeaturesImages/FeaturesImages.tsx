@@ -1,54 +1,5 @@
-import { Image, Text, Container, ThemeIcon, Title, SimpleGrid, createStyles } from "@mantine/core"
-// import IMAGES from './images';
-
-const useStyles = createStyles((theme) => ({
-  wrapper: {
-    paddingTop: 80,
-    paddingBottom: 50
-  },
-
-  item: {
-    display: "flex"
-  },
-
-  itemIcon: {
-    padding: theme.spacing.xs,
-    marginRight: theme.spacing.md
-  },
-
-  itemTitle: {
-    marginBottom: theme.spacing.xs / 2
-  },
-
-  supTitle: {
-    textAlign: "center",
-    textTransform: "uppercase",
-    fontWeight: 800,
-    fontSize: theme.fontSizes.sm,
-    color: theme.fn.variant({ variant: "light", color: theme.primaryColor }).color,
-    letterSpacing: 0.5
-  },
-
-  title: {
-    lineHeight: 1,
-    textAlign: "center",
-    marginTop: theme.spacing.xl
-  },
-
-  description: {
-    textAlign: "center",
-    marginTop: theme.spacing.xs
-  },
-
-  highlight: {
-    backgroundColor: theme.fn.variant({ variant: "light", color: theme.primaryColor }).background,
-    padding: 5,
-    paddingTop: 0,
-    borderRadius: theme.radius.sm,
-    display: "inline-block",
-    color: theme.colorScheme === "dark" ? theme.white : "inherit"
-  }
-}))
+import { Text, Container, Title, SimpleGrid } from "@mantine/core"
+import { useStyles } from "./useStyles"
 
 interface FeatureImage {
   image: string
@@ -67,10 +18,6 @@ export function FeaturesImages({ supTitle, description, data }: FeaturesImagesPr
 
   const items = data.map((item) => (
     <div className={classes.item} key={item.image}>
-      {/* <ThemeIcon variant="light" className={classes.itemIcon} size={60} radius="md">
-        <Image alt={'img'} src={IMAGES[item.image]} />
-      </ThemeIcon> */}
-
       <div>
         <Text weight={700} size="lg" className={classes.itemTitle}>
           {item.title}

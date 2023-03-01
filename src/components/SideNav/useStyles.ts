@@ -1,4 +1,4 @@
-import { MantineTheme, createStyles } from "@mantine/core"
+import { createStyles } from "@mantine/core"
 
 export const useStyles = createStyles<string, { collapsed?: boolean }>((theme, params, getRef) => {
     const icon: string = getRef("icon")
