@@ -1,14 +1,13 @@
+import { MantineTheme } from '@mantine/core';
 import { createStyles } from '@mantine/core'
 
-export const useStyles = createStyles((theme) => ({
+export const useStyles = createStyles((theme: MantineTheme, img: string) => ({
     hero: {
         position: "relative",
-        backgroundImage:
-            "url(https://images.unsplash.com/photo-1547234935-80c7145ec969?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3216&q=80)",
+        backgroundImage: `url(${img})`,
         backgroundSize: "cover",
         backgroundPosition: "bottom center"
     },
-
     container: {
         height: 800,
         display: "flex",
@@ -24,7 +23,6 @@ export const useStyles = createStyles((theme) => ({
             paddingBottom: theme.spacing.xl * 3
         }
     },
-
     title: {
         color: theme.white,
         fontSize: 60,
@@ -41,7 +39,6 @@ export const useStyles = createStyles((theme) => ({
             lineHeight: 1.3
         }
     },
-
     description: {
         color: theme.white,
         maxWidth: 600,
@@ -51,7 +48,6 @@ export const useStyles = createStyles((theme) => ({
             fontSize: theme.fontSizes.sm
         }
     },
-
     control: {
         marginTop: theme.spacing.xl * 1.5,
 

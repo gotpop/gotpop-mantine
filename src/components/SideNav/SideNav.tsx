@@ -1,21 +1,11 @@
-import { FC } from "react"
-import Link from "next/link"
+import { Group, MediaQuery, Navbar, Tooltip, UnstyledButton } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
-import { Navbar, Group, UnstyledButton, Tooltip, MediaQuery } from "@mantine/core"
-import {
-  IconArrowLeft,
-  IconArrowRight,
-  IconDeviceAnalytics,
-  IconRocket,
-  IconRobot
-} from "@tabler/icons-react"
-import { useStyles } from "./useStyles"
+import { IconArrowLeft, IconArrowRight, IconDeviceAnalytics } from "@tabler/icons-react"
+import Link from "next/link"
 import { useRouter } from "next/router"
-
-const ITEMS = [
-  { id: 1, href: "/mission-control/onboarding", label: "Onboarding", Icon: IconRocket },
-  { id: 2, href: "/mission-control/profile", label: "Profile", Icon: IconRobot }
-]
+import { FC } from "react"
+import { dataMenu } from "./data"
+import { useStyles } from "./useStyles"
 
 export const SideNav: FC<{ className?: string }> = ({ className }) => {
   const [collapsed, handlers] = useDisclosure(false)
@@ -42,7 +32,8 @@ export const SideNav: FC<{ className?: string }> = ({ className }) => {
             </Link>
           </Tooltip>
         </Group>
-        {ITEMS.map(({ id, label, href, Icon }) => (
+
+        {dataMenu.map(({ id, label, href, Icon }) => (
           <Tooltip
             key={label}
             label={label}

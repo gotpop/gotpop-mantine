@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout"
 import { createStyles, Accordion, Grid, Col, Container, Title, MantineTheme } from "@mantine/core"
 import { imgPaths } from "@/utils/imgPaths"
 
-const useStyles = createStyles((theme: MantineTheme, img) => ({
+const useStyles = createStyles((theme: MantineTheme, img: string) => ({
   wrapper: {
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
@@ -29,7 +29,7 @@ const placeholder =
   "It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon."
 
 export default function Faqs() {
-  const img = imgPaths.img2 as any
+  const img = imgPaths.img2
   const { classes } = useStyles(img)
 
   return (

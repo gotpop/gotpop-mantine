@@ -1,6 +1,6 @@
 import { MantineTheme, createStyles } from "@mantine/core"
 
-export const useStyles = createStyles((theme) => ({
+export const useStyles = createStyles((theme: MantineTheme) => ({
     header: {
         paddingTop: theme.spacing.sm,
         marginBottom: 0

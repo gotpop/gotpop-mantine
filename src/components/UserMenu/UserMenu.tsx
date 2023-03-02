@@ -14,7 +14,7 @@ import { useStyles } from "./useStyles"
 import { NextLink } from "@mantine/next"
 
 export function UserMenu() {
-  const { classes, theme, cx } = useStyles()
+  const { classes, cx } = useStyles()
   const [opened, { toggle }] = useDisclosure(false)
   const [userMenuOpened, setUserMenuOpened] = useState(false)
   const { data: session, status } = useSession()

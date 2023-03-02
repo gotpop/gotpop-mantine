@@ -1,5 +1,5 @@
 import { Badge, Group, Title, Text, Card, SimpleGrid, Container } from "@mantine/core"
-import { mockdata } from "./data"
+import { mockdata } from "./mockdata"
 import { useStyles } from "./useStyles"
 
 export function FeaturesCards() {

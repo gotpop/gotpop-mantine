@@ -1,8 +1,10 @@
+import { imgPaths } from "@/utils/imgPaths"
 import { Overlay, Container, Title, Button, Text } from "@mantine/core"
 import { useStyles } from "./useStyles"
 
 export function HeroContentLeft() {
-  const { classes } = useStyles()
+  const img = imgPaths.img2
+  const { classes } = useStyles(img)
 
   return (
     <div className={classes.hero}>

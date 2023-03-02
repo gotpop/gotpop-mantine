@@ -8,7 +8,6 @@ export const useStyles = createStyles((theme) => ({
             fontSize: 24
         }
     },
-
     description: {
         maxWidth: 600,
         margin: "auto",
@@ -24,11 +23,9 @@ export const useStyles = createStyles((theme) => ({
             marginRight: "auto"
         }
     },
-
     card: {
         border: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1]}`
     },
-
     cardTitle: {
         "&::after": {
             content: '""',

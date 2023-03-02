@@ -10,19 +10,16 @@ export const useStyles = createStyles<string, { collapsed?: boolean }>((theme, p
             width: params?.collapsed ? 81 : 264,
             transition: params?.collapsed ? "width 0.1s linear" : "none"
         },
-
         header: {
             paddingBottom: theme.spacing.xs,
             marginBottom: theme.spacing.md,
             borderBottom: `1px solid ${theme.colors.gray[2]}`
         },
-
         footer: {
             paddingTop: theme.spacing.xs,
             marginTop: theme.spacing.md,
             borderTop: `1px solid ${theme.colors.gray[2]}`
         },
-
         logo: {
             ...theme.fn.focusStyles(),
             width: "100%",
@@ -36,7 +33,6 @@ export const useStyles = createStyles<string, { collapsed?: boolean }>((theme, p
             borderRadius: theme.radius.sm,
             fontWeight: 700
         },
-
         link: {
             ...theme.fn.focusStyles(),
             width: "100%",
@@ -59,7 +55,6 @@ export const useStyles = createStyles<string, { collapsed?: boolean }>((theme, p
                 }
             }
         },
-
         linkActive: {
             "&, &:hover": {
                 backgroundColor: theme.colors[theme.primaryColor][0],
@@ -69,12 +64,10 @@ export const useStyles = createStyles<string, { collapsed?: boolean }>((theme, p
                 }
             }
         },
-
         linkIcon: {
             ref: icon,
             color: theme.colors.gray[6]
         },
-
         linkLabel: params?.collapsed ? { display: "none" } : {}
     }
 })
