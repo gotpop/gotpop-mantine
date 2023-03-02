@@ -1,7 +1,8 @@
 import { ButtonProps, Button } from "@mantine/core"
 import { signIn } from "next-auth/react"
-import { GoogleIcon } from "./GoogleIcon"
-import { GitHubIcon } from "./GitHubIcon"
+
+import { GoogleIcon } from "@/icons/GoogleIcon"
+import { GitHubIcon } from "@/icons/GitHubIcon"
 
 export function GoogleButton(props: ButtonProps) {
   return (

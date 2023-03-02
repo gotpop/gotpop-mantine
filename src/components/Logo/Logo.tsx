@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import { Title } from "@mantine/core"
-import { SpaceXIcon } from "../SocialButtons/SpaceXIcon"
+import { SpaceXIcon } from "@/icons/SpaceXIcon"
 import { useStyles } from "./useStyles"
 
 export function Logo() {
