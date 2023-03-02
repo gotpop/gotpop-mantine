@@ -24,6 +24,9 @@ export const authOptions: NextAuthOptions = {
     })
   ],
   secret: process.env.JWT_SECRET,
+  pages: {
+    signIn: '/login',
+  },
   events: {
     createUser: async ({ user }) => {
       console.log('user :', user);
