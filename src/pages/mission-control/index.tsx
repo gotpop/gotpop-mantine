@@ -15,7 +15,7 @@ export default function MissionControl({ sessionData, missionItem }: Props) {
   return (
     <LayoutDashboard>
       <Container my="xl">
-        <Title order={1} mb={50}>
+        <Title order={2} mb={50}>
           Mission Control
         </Title>
         {!missionItem && (

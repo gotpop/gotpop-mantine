@@ -10,7 +10,7 @@ export default function Profile({ sessionData }: { sessionData: Session }) {
   return (
     <LayoutDashboard>
       <Container my="xl">
-        <Title order={1} mb={50}>
+        <Title order={2} mb={50}>
           Profile
         </Title>
         <Paper
