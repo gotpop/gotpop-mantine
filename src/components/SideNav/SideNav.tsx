@@ -9,8 +9,8 @@ import {
   IconRocket,
   IconRobot
 } from "@tabler/icons-react"
-import { NextLink } from "@mantine/next"
 import { useStyles } from "./useStyles"
+import { useRouter } from "next/router"
 
 const ITEMS = [
   { id: 1, href: "/mission-control/onboarding", label: "Onboarding", Icon: IconRocket },
@@ -20,6 +20,7 @@ const ITEMS = [
 export const SideNav: FC<{ className?: string }> = ({ className }) => {
   const [collapsed, handlers] = useDisclosure(false)
   const { classes, cx } = useStyles({ collapsed })
+  const router = useRouter()
 
   return (
     <Navbar p="md" className={cx(classes.navbar, className)}>
@@ -32,7 +33,10 @@ export const SideNav: FC<{ className?: string }> = ({ className }) => {
             withArrow
             sx={{ width: "160px" }}
           >
-            <Link href={"/mission-control"} className={classes.link}>
+            <Link
+              href="/mission-control"
+              className={cx(classes.link, { [classes.linkActive]: router.asPath == "/mission-control" })}
+            >
               <IconDeviceAnalytics />
               <span className={classes.linkLabel}>Mission Dashboard</span>
             </Link>
@@ -47,10 +51,14 @@ export const SideNav: FC<{ className?: string }> = ({ className }) => {
             withArrow
             sx={{ width: "110px" }}
           >
-            <NextLink key={id} href={href} legacyBehavior className={classes.link}>
+            <Link
+              key={id}
+              href={href}
+              className={cx(classes.link, { [classes.linkActive]: router.asPath == href })}
+            >
               <Icon className={classes.linkIcon} />
               <span className={classes.linkLabel}>{label}</span>
-            </NextLink>
+            </Link>
           </Tooltip>
         ))}
       </Navbar.Section>
