@@ -63,22 +63,4 @@ model Mission {
   updatedAt   DateTime @updatedAt
   user        User     @relation(fields: [userId], references: [email])
   userId      String   @unique
-  // Contact     Contact[]
 }
-
-// model Nft {
-//   id         String  @id @default(cuid())
-//   logo       String
-//   tagline    String
-//   background String
-//   mission    Mission @relation(fields: [missionId], references: [id])
-//   missionId  String  @unique
-// }
-
-// model Contact {
-//   id        String   @id @default(cuid())
-//   key       String
-//   active    Boolean
-//   Mission   Mission? @relation(fields: [missionId], references: [id])
-//   missionId String?
-// }
