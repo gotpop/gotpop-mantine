@@ -1,4 +1,5 @@
 import { Text, Container, Title, SimpleGrid } from "@mantine/core"
+import { mockData } from "./mockData"
 import { useStyles } from "./useStyles"
 
 interface FeatureImage {
@@ -13,7 +14,8 @@ interface FeaturesImagesProps {
   data: FeatureImage[]
 }
 
-export function FeaturesImages({ supTitle, description, data }: FeaturesImagesProps) {
+export function FeaturesImages() {
+  const { supTitle, description, data }: FeaturesImagesProps = mockData
   const { classes } = useStyles()
 
   const items = data.map((item) => (
