@@ -1,0 +1,1 @@
+export { FaqsBlock } from "./FaqsBlock"
