@@ -1,5 +1,5 @@
 import { Code, Container, Paper, Radio, TextInput } from "@mantine/core"
-import { useStyles } from "./useStyles"
+// import { useStyles } from "../useStyles"
 
 type Props = {
   form: any
@@ -23,8 +23,8 @@ const finalWishData = [
   }
 ]
 
-export default function Step4({ form }: Props) {
-  const { classes } = useStyles()
+export function Step4({ form }: Props) {
+  // const { classes } = useStyles()
 
   const finalWishItems = finalWishData.map((wish) => (
     <Radio key={wish.id} value={wish.value} label={wish.label} />

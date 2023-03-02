@@ -1,5 +1,5 @@
 import { Button, Code, Group, TextInput } from "@mantine/core"
-import { useStyles } from "./useStyles"
+import { useStyles } from "../useStyles"
 
 type Props = {
   active: number
@@ -8,7 +8,7 @@ type Props = {
   isLoading: boolean
 }
 
-export default function StepControls({ active, nextStep, prevStep, isLoading }: Props) {
+export function StepControls({ active, nextStep, prevStep, isLoading }: Props) {
   const { classes } = useStyles()
 
   return (

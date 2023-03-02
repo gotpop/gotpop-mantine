@@ -1,5 +1,5 @@
-import { Container, Paper, Radio, SimpleGrid, TextInput } from "@mantine/core"
-import { useStyles } from "./useStyles"
+import { Paper, Radio, SimpleGrid } from "@mantine/core"
+// import { useStyles } from "../useStyles"
 
 type Props = {
   form: any
@@ -65,8 +65,8 @@ const backgroundData = [
   }
 ]
 
-export default function Step3({ form }: Props) {
-  const { classes } = useStyles()
+export function Step3({ form }: Props) {
+  // const { classes } = useStyles()
 
   const logoItems = logoData.map((item) => <Radio value={item.value} label={item.label} key={item.id} />)
   const taglineItems = taglineData.map((item) => (

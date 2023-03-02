@@ -1,6 +1,6 @@
 import { Title, Text, SimpleGrid, Checkbox } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
-import { useStyles } from "./useStyles"
+// import { useStyles } from "../useStyles"
 
 type Props = {
   form: UseFormReturnType<any>
@@ -45,8 +45,8 @@ const contactsData = [
   }
 ]
 
-export default function Step2({ form }: Props) {
-  const { classes } = useStyles()
+export function Step2({ form }: Props) {
+  // const { classes } = useStyles()
 
   const checks = contactsData.map((item, index: number) => (
     <Checkbox

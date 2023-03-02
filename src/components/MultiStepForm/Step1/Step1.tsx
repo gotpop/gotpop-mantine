@@ -120,7 +120,7 @@ const RadioItem = ({ value, label, description, img, stat }: any) => {
   )
 }
 
-export default function Step1({ form }: Props) {
+export function Step1({ form }: Props) {
   const items = radioData.map((item) => <RadioItem {...item} key={item.id} />)
 
   return (
