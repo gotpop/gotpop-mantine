@@ -1,11 +1,15 @@
 import { Layout } from "@/components/Layout"
-import { createStyles, Image, Accordion, Grid, Col, Container, Title, MantineTheme } from "@mantine/core"
-import image from "./image.svg"
+import { createStyles, Accordion, Grid, Col, Container, Title, MantineTheme } from "@mantine/core"
+import { imgPaths } from "@/utils/imgPaths"
 
-const useStyles = createStyles((theme: MantineTheme) => ({
+const useStyles = createStyles((theme: MantineTheme, img) => ({
   wrapper: {
     paddingTop: theme.spacing.xl * 2,
-    paddingBottom: theme.spacing.xl * 2
+    paddingBottom: theme.spacing.xl * 2,
+    backgroundImage: `url(${img})`,
+    backgroundPosition: "center right",
+    backgroundSize: "cover",
+    minHeight: 800
   },
 
   title: {
@@ -25,7 +29,8 @@ const placeholder =
   "It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon."
 
 export default function Faqs() {
-  const { classes } = useStyles()
+  const img = imgPaths.img2 as any
+  const { classes } = useStyles(img)
 
   return (
     <Layout>
@@ -33,10 +38,7 @@ export default function Faqs() {
 
       <div className={classes.wrapper}>
         <Container size="lg">
-          <Grid id="faq-grid" gutter={50}>
-            <Col span={12} md={6}>
-              {/* <Image src={image.src} alt="Frequently Asked Questions" /> */}
-            </Col>
+          <Grid gutter={50}>
             <Col span={12} md={6}>
               <Title order={2} align="left" className={classes.title}>
                 Frequently Asked Questions
@@ -44,8 +46,10 @@ export default function Faqs() {
 
               <Accordion chevronPosition="right" defaultValue="reset-password" variant="separated">
                 <Accordion.Item className={classes.item} value="reset-password">
-                  <Accordion.Control>How can I reset my password?</Accordion.Control>
-                  <Accordion.Panel>{placeholder}</Accordion.Panel>
+                  <Accordion.Control>Is it dangerous?</Accordion.Control>
+                  <Accordion.Panel>
+                    Yes. Even if we were trying to kill you it wouldn&apos;t be and more dangerous
+                  </Accordion.Panel>
                 </Accordion.Item>
 
                 <Accordion.Item className={classes.item} value="another-account">
@@ -68,6 +72,9 @@ export default function Faqs() {
                   <Accordion.Panel>{placeholder}</Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
+            </Col>
+            <Col span={12} md={6}>
+              {/* <Image src={image.src} alt="Frequently Asked Questions" /> */}
             </Col>
           </Grid>
         </Container>
