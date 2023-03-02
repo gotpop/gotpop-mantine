@@ -1,5 +1,3 @@
-https://console.cloud.google.com/apis/credentials/consent?project=gotpop-shop-auth-local
+# Mission to Mars!
 
-https://github.com/nextauthjs/next-auth/discussions/2808
-
-https://github.com/prisma/prisma/issues/5175
+For trouble shooting problems see the [resources](https://github.com/gotpop/gotpop-mantine/wiki/Resources) wiki
