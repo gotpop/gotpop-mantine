@@ -20,8 +20,8 @@ export default function MissionControl({ sessionData, missionItem }: Props) {
         </Title>
         {!missionItem && (
           <Paper p="xl">
-            <Text mb="xl">You need to complete the onboarding process!</Text>
-            <NextLink href={"/mission-control/onboarding"} legacyBehavior>
+            <Text mb="xl">You need to complete the preflight checks!</Text>
+            <NextLink href={"/mission-control/preflight"} legacyBehavior>
               <Button>Launch today!</Button>
             </NextLink>
           </Paper>

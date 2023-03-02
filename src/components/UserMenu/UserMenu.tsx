@@ -66,9 +66,9 @@ export function UserMenu() {
                   Mission Control
                 </Menu.Item>
               </NextLink>
-              <NextLink href={"/mission-control/onboarding"} className={classes.link} legacyBehavior>
+              <NextLink href={"/mission-control/preflight"} className={classes.link} legacyBehavior>
                 <Menu.Item component="span" icon={<IconRocket size={14} stroke={1.5} />}>
-                  Onboarding
+                  Preflight
                 </Menu.Item>
               </NextLink>
 
