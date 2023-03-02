@@ -20,8 +20,12 @@ export function Step2({ form }: Props) {
 
   return (
     <>
-      <Title order={3}>Step 2</Title>
-      <Text size="lg">Corporate responsibility</Text>
+      <Title order={3} mb={20}>
+        Step 2
+      </Title>
+      <Text size="lg" mb={50}>
+        Corporate responsibility
+      </Text>
       <SimpleGrid
         cols={2}
         w="100%"
