@@ -7,7 +7,7 @@ export default function Onboarding() {
     <LayoutDashboard>
       <Container my="xl">
         <Title order={1} mb={50}>
-          Onboarding
+          Preflight
         </Title>
         <MultiStepForm />
       </Container>
