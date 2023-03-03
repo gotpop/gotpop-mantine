@@ -1,5 +1,6 @@
-import { Paper, Radio, SimpleGrid, Title, Text } from "@mantine/core"
+import { Paper, Radio, SimpleGrid, Title, Text, Notification } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
+import { IconX } from "@tabler/icons-react"
 import { FormValues } from "../MultiStepForm"
 import { logoData, taglineData, backgroundData } from "./data"
 import { useStyles } from "./useStyles"
@@ -44,7 +45,13 @@ export function Step3({ form }: Props) {
           <Radio.Group
             {...form.getInputProps("nft.logo")}
             description="What have you got to lose?"
-            error={form.errors.nftLogo}
+            error={
+              form.errors.nftLogo && (
+                <Notification mt={20} disallowClose icon={<IconX size="1.1rem" />} color="red">
+                  {form.errors.nftLogo}
+                </Notification>
+              )
+            }
             label="Choose a logo"
             name="chooseALogo"
             offset={40}
@@ -59,7 +66,13 @@ export function Step3({ form }: Props) {
           <Radio.Group
             {...form.getInputProps("nft.tagline")}
             description="What have you got to lose?"
-            error={form.errors.nftTagline}
+            error={
+              form.errors.nftTagline && (
+                <Notification mt={20} disallowClose icon={<IconX size="1.1rem" />} color="red">
+                  {form.errors.nftTagline}
+                </Notification>
+              )
+            }
             label="Choose a tagline"
             name="chooseATagline"
             offset={40}
@@ -74,7 +87,13 @@ export function Step3({ form }: Props) {
           <Radio.Group
             {...form.getInputProps("nft.background")}
             description="What have you got to lose?"
-            error={form.errors.nftBackground}
+            error={
+              form.errors.nftBackground && (
+                <Notification mt={20} disallowClose icon={<IconX size="1.1rem" />} color="red">
+                  {form.errors.nftBackground}
+                </Notification>
+              )
+            }
             label="Choose background"
             name="chooseABackground"
             offset={40}

@@ -2,7 +2,20 @@ import { Box, Center, Group, Overlay, Radio, RingProgress, Text, Title } from "@
 import { IconCheck, IconSkull } from "@tabler/icons-react"
 import { useStyles } from "./useStep1Styles"
 
-export const RadioItem = ({ value, label, description, img, stat }: any) => {
+type Props = {
+  value: string
+  label: string
+  description: string
+  img: string
+  stat: {
+    label: string
+    stats: string
+    progress: number
+    color: string
+  }
+}
+
+export const RadioItem = ({ value, label, description, img, stat }: Props) => {
   const { classes } = useStyles(img)
 
   return (
@@ -24,6 +37,7 @@ export const RadioItem = ({ value, label, description, img, stat }: any) => {
             opacity={1}
             zIndex={0}
           />
+
           <Box className={classes.box}>
             <Title order={1} color="white">
               {label}

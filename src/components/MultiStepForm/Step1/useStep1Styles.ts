@@ -1,14 +1,12 @@
 import { MantineTheme, createStyles } from "@mantine/core"
 
-export const useStyles = createStyles((theme: MantineTheme, img) => ({
+export const useStyles = createStyles((theme: MantineTheme, img: string) => ({
     root: {
         display: "flex",
         flexDirection: "column",
         borderRadius: theme.radius.md,
         overflow: "hidden",
         boxShadow: theme.shadows.sm,
-        // marginTop: theme.spacing.xl,
-
     },
     label: {
         display: "flex",
