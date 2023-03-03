@@ -1,5 +1,5 @@
 import { authOptions } from "../api/auth/[...nextauth]"
-import { Button, Container, Paper, Title, Text } from "@mantine/core"
+import { Button, Container, Paper, Title, Text, SimpleGrid } from "@mantine/core"
 import { getServerSession, Session } from "next-auth"
 import { GetServerSideProps } from "next"
 import { LayoutDashboard } from "@/components/LayoutDashboard"
@@ -15,10 +15,11 @@ type Props = {
 export default function MissionControl({ sessionData, missionItem }: Props) {
   return (
     <LayoutDashboard>
-      <Container my="xl">
-        <Title order={2} mb={50}>
-          Mission Control
+      <Container fluid my="xl">
+        <Title order={2} mb={20} ml={10}>
+          Welcome to Mission Control, {sessionData.user?.name}!
         </Title>
+
         {!missionItem && (
           <Paper p="xl">
             <Text mb="xl">You need to complete the preflight checks!</Text>
@@ -28,7 +29,34 @@ export default function MissionControl({ sessionData, missionItem }: Props) {
           </Paper>
         )}
 
-        {missionItem && <pre>{JSON.stringify(missionItem, null, 2)}</pre>}
+        {/* {missionItem && <pre>{JSON.stringify(missionItem, null, 2)}</pre>} */}
+        {missionItem && (
+          <>
+            <SimpleGrid
+              cols={4}
+              w="100%"
+              spacing="lg"
+              breakpoints={[
+                { maxWidth: "lg", cols: 3 },
+                { maxWidth: "md", cols: 2 },
+                { maxWidth: "sm", cols: 1 }
+              ]}
+            >
+              <Paper p="xl">
+                <Text mb="xl">Your mission</Text>
+              </Paper>
+              <Paper p="xl">
+                <Text mb="xl">Your contacts</Text>
+              </Paper>
+              <Paper p="xl">
+                <Text mb="xl">Your final wishes</Text>
+              </Paper>
+              <Paper p="xl">
+                <Text mb="xl">Your headstone</Text>
+              </Paper>
+            </SimpleGrid>
+          </>
+        )}
       </Container>
     </LayoutDashboard>
   )
