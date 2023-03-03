@@ -18,7 +18,7 @@ export const radioData = [
     },
     {
         id: 2,
-        value: "ng",
+        value: "orbit",
         label: "Mars Orbit",
         description: "If the radiation doesn't get you then talking about Tesla for over 6 months will.",
         img: imgPaths.img4,
@@ -32,7 +32,7 @@ export const radioData = [
     },
     {
         id: 3,
-        value: "vue",
+        value: "landing",
         label: "Mars Landing",
         description: "You're alone. You drink recycled urine. This is your life now.",
         img: imgPaths.img3,

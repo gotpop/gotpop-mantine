@@ -1,18 +1,18 @@
 export const logoData = [
     {
         id: "1",
-        label: "Logo 1",
-        value: "logo1"
+        label: "Tesla",
+        value: "tesla"
     },
     {
         id: "2",
-        label: "Logo 2",
-        value: "logo2"
+        label: "Paypal",
+        value: "paypal"
     },
     {
         id: "3",
-        label: "Logo 3",
-        value: "logo3"
+        label: "The Boring Company",
+        value: "boringCompany"
     }
 ]
 
@@ -20,19 +20,19 @@ export const taglineData = [
     {
         id: "1",
         active: false,
-        label: "Tagline 1",
+        label: "Crypto 4 eva",
         value: "tagline1"
     },
     {
         id: "2",
         active: false,
-        label: "Tagline 2",
+        label: "Don't repeat yourself",
         value: "tagline2"
     },
     {
         id: "3",
         active: false,
-        label: "Tagline 3",
+        label: "Buy the dip",
         value: "tagline3"
     }
 ]
@@ -41,19 +41,19 @@ export const backgroundData = [
     {
         id: "1",
         active: false,
-        label: "Background 1",
-        value: "background1"
+        label: "Bored Ape",
+        value: "boredApe"
     },
     {
         id: "2",
         active: false,
-        label: "Background 2",
-        value: "background2"
+        label: "Trump",
+        value: "trump"
     },
     {
         id: "3",
         active: false,
-        label: "Background 3",
-        value: "background3"
+        label: "Grimes",
+        value: "grimes"
     }
 ]

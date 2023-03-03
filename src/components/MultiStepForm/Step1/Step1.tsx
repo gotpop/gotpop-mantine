@@ -1,9 +1,10 @@
 import { Radio, SimpleGrid } from "@mantine/core"
+import { UseFormReturnType } from "@mantine/form"
 import { radioData } from "./data"
 import { RadioItem } from "./RadioItem"
 
 type Props = {
-  form: any
+  form: UseFormReturnType<FormValues>
 }
 
 export function Step1({ form }: Props) {
@@ -11,14 +12,14 @@ export function Step1({ form }: Props) {
 
   return (
     <Radio.Group
-      required
-      defaultValue="vue"
-      name="chooseAMission"
-      label="Choose the mission of a lifetime"
+      {...form.getInputProps("missionType")}
       description="What have you got to lose?"
+      error={form.errors.missionType}
+      label="Choose the mission of a lifetime"
+      name="chooseAMission"
       offset={40}
+      required
       size="xl"
-      {...form.getInputProps("missionType", { type: "checkbox" })}
     >
       <SimpleGrid
         cols={3}
