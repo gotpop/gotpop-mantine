@@ -1,6 +1,10 @@
 import { Paper, Text } from "@mantine/core"
 
-export function YourWishes() {
+type Props = {
+  finalWish: string | null | undefined
+}
+
+export function YourWishes({ finalWish }: Props) {
   return (
     <>
       <Paper p="xl">

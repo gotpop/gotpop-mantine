@@ -1,11 +1,19 @@
-import { SimpleGrid } from "@mantine/core"
+import { SimpleGrid, Skeleton } from "@mantine/core"
+import { Mission } from "@prisma/client"
 
 import { YourContacts } from "./YourContacts"
 import { YourHeadstone } from "./YourHeadstone"
 import { YourMission } from "./YourMission"
 import { YourWishes } from "./YourWishes"
 
-export function DashBoardWidgets() {
+type Props = {
+  missionItem: Mission | undefined
+  isLoading: boolean
+}
+
+export function DashBoardWidgets({ missionItem, isLoading }: Props) {
+  // const { missionType, contacts, nft, finalWish } = missionItem
+
   return (
     <>
       <SimpleGrid
@@ -18,10 +26,23 @@ export function DashBoardWidgets() {
           { maxWidth: "sm", cols: 1 }
         ]}
       >
-        <YourContacts />
-        <YourMission />
-        <YourHeadstone />
-        <YourWishes />
+        <Skeleton visible={isLoading}>
+          <YourMission missionType={missionItem?.missionType} />
+        </Skeleton>
+        <Skeleton visible={isLoading}>
+          <YourContacts contacts={missionItem?.contacts} />
+        </Skeleton>
+        <Skeleton visible={isLoading}>
+          <YourHeadstone nft={missionItem?.nft} />
+        </Skeleton>
+        <Skeleton visible={isLoading}>
+          <YourWishes finalWish={missionItem?.finalWish} />
+        </Skeleton>
+        {/* {missionItem && (
+          <>
+           
+          </>
+        )} */}
       </SimpleGrid>
     </>
   )

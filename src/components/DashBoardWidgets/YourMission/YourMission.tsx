@@ -1,6 +1,10 @@
 import { Paper, Text } from "@mantine/core"
 
-export function YourMission() {
+type Props = {
+  missionType: string | null | undefined
+}
+
+export function YourMission({ missionType }: Props) {
   return (
     <>
       <Paper p="xl">

@@ -7,13 +7,16 @@ import prisma from "@/lib/prisma"
 import { NextLink } from "@mantine/next"
 import { Mission } from "@prisma/client"
 import { DashBoardWidgets } from "@/components/DashBoardWidgets"
+import { fetcher } from "@/utils/fetcher"
+import useSWR from "swr"
 
 type Props = {
   sessionData: Session
-  missionItem: Mission
 }
 
-export default function MissionControl({ sessionData, missionItem }: Props) {
+export default function MissionControl({ sessionData }: Props) {
+  const { data: missionItem, error, isLoading } = useSWR<Mission>("/api/mission", fetcher)
+
   return (
     <LayoutDashboard>
       <Container fluid my="xl">
@@ -21,7 +24,7 @@ export default function MissionControl({ sessionData, missionItem }: Props) {
           Welcome to Mission Control, {sessionData.user?.name}!
         </Title>
 
-        {!missionItem && (
+        {!missionItem && !isLoading && (
           <Paper p="xl">
             <Text mb="xl">You need to complete the preflight checks!</Text>
             <NextLink href={"/mission-control/preflight"} legacyBehavior>
@@ -30,14 +33,13 @@ export default function MissionControl({ sessionData, missionItem }: Props) {
           </Paper>
         )}
 
-        {/* {missionItem && <pre>{JSON.stringify(missionItem, null, 2)}</pre>} */}
-        {missionItem && <DashBoardWidgets />}
+        <DashBoardWidgets missionItem={missionItem} isLoading={isLoading} />
       </Container>
     </LayoutDashboard>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const session = await getServerSession(context.req, context.res, authOptions)
 
   if (!session) {
@@ -49,23 +51,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
-  const { user } = session
-  const sessionEmail = user?.email ? user?.email : undefined
-
-  const missionItem = await prisma.mission.findUnique({
-    where: { userId: sessionEmail },
-    select: {
-      finalWish: true,
-      missionType: true,
-      contacts: true,
-      nft: true
-    }
-  })
-
   return {
     props: {
-      sessionData: session, // NextAuth session is namespaced. Use any other variable name.
-      missionItem
+      sessionData: session // NextAuth session is namespaced. Use any other variable name.
     }
   }
 }
