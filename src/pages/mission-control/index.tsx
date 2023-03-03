@@ -31,11 +31,7 @@ export default function MissionControl({ sessionData, missionItem }: Props) {
         )}
 
         {/* {missionItem && <pre>{JSON.stringify(missionItem, null, 2)}</pre>} */}
-        {missionItem && (
-          <>
-            <DashBoardWidgets />
-          </>
-        )}
+        {missionItem && <DashBoardWidgets />}
       </Container>
     </LayoutDashboard>
   )
