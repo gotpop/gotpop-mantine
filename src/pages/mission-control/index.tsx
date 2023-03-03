@@ -5,10 +5,11 @@ import { GetServerSideProps } from "next"
 import { LayoutDashboard } from "@/components/LayoutDashboard"
 import prisma from "@/lib/prisma"
 import { NextLink } from "@mantine/next"
+import { Mission } from "@prisma/client"
 
 type Props = {
   sessionData: Session
-  missionItem: any
+  missionItem: Mission
 }
 
 export default function MissionControl({ sessionData, missionItem }: Props) {
