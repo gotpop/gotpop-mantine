@@ -1,5 +1,6 @@
 import { Radio, SimpleGrid } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
+import { FormValues } from "../MultiStepForm"
 import { radioData } from "./data"
 import { RadioItem } from "./RadioItem"
 
