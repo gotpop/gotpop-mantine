@@ -3,7 +3,6 @@ import { getServerSession } from "next-auth/next"
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/lib/prisma'
-import { Prisma } from '@prisma/client'
 
 export default async function missionHandler(req: NextApiRequest, res: NextApiResponse) {
     const session = await getServerSession(req, res, authOptions)
@@ -16,8 +15,8 @@ export default async function missionHandler(req: NextApiRequest, res: NextApiRe
         return res.status(401).json({ message: "You must be logged in." })
     }
 
-    const { user } = session
-    const sessionEmail = user?.email ? user?.email : undefined
+    const { user: { email } = {} } = session
+    const sessionEmail = email ?? undefined
 
     if (req.method === 'GET') {
         const missionItem = await prisma.mission.findUnique({
@@ -35,8 +34,8 @@ export default async function missionHandler(req: NextApiRequest, res: NextApiRe
             where: { userId: sessionEmail },
             update: {
                 missionType,
-                contacts: contacts,
-                nft: nft,
+                contacts,
+                nft,
                 finalWish
             },
             create: {
