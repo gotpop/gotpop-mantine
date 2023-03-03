@@ -6,6 +6,7 @@ import { LayoutDashboard } from "@/components/LayoutDashboard"
 import prisma from "@/lib/prisma"
 import { NextLink } from "@mantine/next"
 import { Mission } from "@prisma/client"
+import { DashBoardWidgets } from "@/components/DashBoardWidgets"
 
 type Props = {
   sessionData: Session
@@ -32,29 +33,7 @@ export default function MissionControl({ sessionData, missionItem }: Props) {
         {/* {missionItem && <pre>{JSON.stringify(missionItem, null, 2)}</pre>} */}
         {missionItem && (
           <>
-            <SimpleGrid
-              cols={4}
-              w="100%"
-              spacing="lg"
-              breakpoints={[
-                { maxWidth: "lg", cols: 3 },
-                { maxWidth: "md", cols: 2 },
-                { maxWidth: "sm", cols: 1 }
-              ]}
-            >
-              <Paper p="xl">
-                <Text mb="xl">Your mission</Text>
-              </Paper>
-              <Paper p="xl">
-                <Text mb="xl">Your contacts</Text>
-              </Paper>
-              <Paper p="xl">
-                <Text mb="xl">Your final wishes</Text>
-              </Paper>
-              <Paper p="xl">
-                <Text mb="xl">Your headstone</Text>
-              </Paper>
-            </SimpleGrid>
+            <DashBoardWidgets />
           </>
         )}
       </Container>
