@@ -12,6 +12,6 @@ export const wishData = [
     {
         key: 'wish3',
         title: '"Remember me with music"',
-        description: "If you make the ultimate sacrifice, both for humanity and for Tesla's stock price we will return the favour and show out gratitue with an AI genrated KPOP song."
+        description: "If you make the ultimate sacrifice, both for humanity and for Tesla's stock price we will return the favour and show our gratitude with an AI generated KPOP song."
     },
 ]
