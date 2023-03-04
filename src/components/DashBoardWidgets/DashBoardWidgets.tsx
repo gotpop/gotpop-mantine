@@ -1,7 +1,7 @@
-import useSWR from "swr"
 import { fetcher } from "@/utils/fetcher"
+import useSWR from "swr"
 
-import { SimpleGrid, Skeleton } from "@mantine/core"
+import { Grid, Skeleton } from "@mantine/core"
 import { Mission } from "@prisma/client"
 
 import { YourContacts } from "./YourContacts"
@@ -14,30 +14,27 @@ export function DashBoardWidgets() {
   const { missionType, contacts, nft, finalWish } = { ...data } as Mission
 
   return (
-    <>
-      <SimpleGrid
-        cols={4}
-        w="100%"
-        spacing="lg"
-        breakpoints={[
-          { maxWidth: "lg", cols: 3 },
-          { maxWidth: "md", cols: 2 },
-          { maxWidth: "sm", cols: 1 }
-        ]}
-      >
-        <Skeleton visible={isLoading}>
+    <Grid>
+      <Grid.Col md={6} lg={7}>
+        <Skeleton visible={isLoading} style={{ display: "flex", height: "100%" }}>
           <YourMission missionType={missionType} />
         </Skeleton>
-        <Skeleton visible={isLoading}>
+      </Grid.Col>
+      <Grid.Col md={6} lg={5}>
+        <Skeleton visible={isLoading} style={{ display: "flex", height: "100%" }}>
           <YourContacts contacts={contacts} />
         </Skeleton>
-        <Skeleton visible={isLoading}>
+      </Grid.Col>
+      <Grid.Col md={6} lg={3}>
+        <Skeleton visible={isLoading} style={{ display: "flex", height: "100%" }}>
           <YourHeadstone nft={nft} />
         </Skeleton>
-        <Skeleton visible={isLoading}>
+      </Grid.Col>
+      <Grid.Col md={6} lg={9}>
+        <Skeleton visible={isLoading} style={{ display: "flex", height: "100%" }}>
           <YourWishes finalWish={finalWish} />
         </Skeleton>
-      </SimpleGrid>
-    </>
+      </Grid.Col>
+    </Grid>
   )
 }

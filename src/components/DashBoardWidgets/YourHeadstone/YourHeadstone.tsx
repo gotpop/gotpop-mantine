@@ -1,5 +1,6 @@
 import { Box, Paper, Text, Title } from "@mantine/core"
 import { Mission, Prisma } from "@prisma/client"
+import { IconBrandFacebook, IconBrandPaypal } from "@tabler/icons-react"
 import { headstoneData } from "./data"
 
 type Props = {
@@ -15,9 +16,11 @@ export function YourHeadstone({ nft }: Props) {
 
   return (
     <>
-      <Paper p="xl">
+      <Paper p="xl" style={{ gap: "1rem", height: "100%", flex: "1" }}>
         <Title order={4} mb="xl">
           Your headstone
+          <IconBrandPaypal />
+          <IconBrandFacebook />
         </Title>
 
         <Paper>

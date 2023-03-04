@@ -13,7 +13,7 @@ export function YourWishes({ finalWish }: Props) {
   const { description, title } = { ...wish }
 
   return (
-    <Paper p="xl">
+    <Paper p="xl" style={{ gap: "1rem", height: "100%", flex: "1" }}>
       <Title order={3} mb="xl">
         Your final wishes
       </Title>
