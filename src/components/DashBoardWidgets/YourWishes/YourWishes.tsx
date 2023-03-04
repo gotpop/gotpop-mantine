@@ -15,7 +15,7 @@ export function YourWishes({ finalWish }: Props) {
   return (
     <Paper p="xl" style={{ gap: "1rem", height: "100%", flex: "1" }}>
       <Title order={3} mb="xl">
-        Your final wishes
+        Your final wish
       </Title>
       <Text weight="bold">{title}</Text>
       <Text>{description}</Text>

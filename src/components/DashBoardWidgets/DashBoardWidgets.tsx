@@ -16,7 +16,7 @@ export function DashBoardWidgets() {
   return (
     <Grid>
       <Grid.Col md={6} lg={7}>
-        <Skeleton visible={isLoading} style={{ display: "flex", height: "100%" }}>
+        <Skeleton visible={isLoading} style={{ display: "flex", height: "100%", minHeight: 300 }}>
           <YourMission missionType={missionType} />
         </Skeleton>
       </Grid.Col>
@@ -25,12 +25,12 @@ export function DashBoardWidgets() {
           <YourContacts contacts={contacts} />
         </Skeleton>
       </Grid.Col>
-      <Grid.Col md={6} lg={3}>
+      <Grid.Col md={6} lg={5}>
         <Skeleton visible={isLoading} style={{ display: "flex", height: "100%" }}>
           <YourHeadstone nft={nft} />
         </Skeleton>
       </Grid.Col>
-      <Grid.Col md={6} lg={9}>
+      <Grid.Col md={6} lg={7}>
         <Skeleton visible={isLoading} style={{ display: "flex", height: "100%" }}>
           <YourWishes finalWish={finalWish} />
         </Skeleton>

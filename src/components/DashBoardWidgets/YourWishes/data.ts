@@ -11,7 +11,7 @@ export const wishData = [
     },
     {
         key: 'wish3',
-        title: 'Wish 3',
-        description: 'Wish to die on the surface of Mars'
+        title: '"Remember me with music"',
+        description: "If you make the ultimate sacrifice, both for humanity and for Tesla's stock price we will return the favour and show out gratitue with an AI genrated KPOP song."
     },
 ]
