@@ -1,15 +1,24 @@
-import { Paper, Text } from "@mantine/core"
+import { Paper, Text, Title } from "@mantine/core"
+import { Mission } from "@prisma/client"
+import { missionData } from "./data"
+
+type MissonTypeProp = Pick<Mission, "missionType">
 
 type Props = {
-  missionType: string | null | undefined
+  missionType: MissonTypeProp["missionType"]
 }
 
 export function YourMission({ missionType }: Props) {
+  const mission = missionData.find(({ key }) => key === missionType)
+  const { description, title } = { ...mission }
+
   return (
-    <>
-      <Paper p="xl">
-        <Text mb="xl">Your mission</Text>
-      </Paper>
-    </>
+    <Paper p="xl">
+      <Title order={3} mb="xl">
+        Your mission
+      </Title>
+      <Text weight="bold">{title}</Text>
+      <Text>{description}</Text>
+    </Paper>
   )
 }

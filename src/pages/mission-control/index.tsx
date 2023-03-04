@@ -1,22 +1,15 @@
-import { authOptions } from "../api/auth/[...nextauth]"
-import { Button, Container, Paper, Title, Text, SimpleGrid } from "@mantine/core"
-import { getServerSession, Session } from "next-auth"
-import { GetServerSideProps } from "next"
-import { LayoutDashboard } from "@/components/LayoutDashboard"
-import prisma from "@/lib/prisma"
-import { NextLink } from "@mantine/next"
-import { Mission } from "@prisma/client"
 import { DashBoardWidgets } from "@/components/DashBoardWidgets"
-import { fetcher } from "@/utils/fetcher"
-import useSWR from "swr"
+import { LayoutDashboard } from "@/components/LayoutDashboard"
+import { Container, Title } from "@mantine/core"
+import { GetServerSideProps } from "next"
+import { getServerSession, Session } from "next-auth"
+import { authOptions } from "../api/auth/[...nextauth]"
 
 type Props = {
   sessionData: Session
 }
 
 export default function MissionControl({ sessionData }: Props) {
-  const { data: missionItem, error, isLoading } = useSWR<Mission>("/api/mission", fetcher)
-
   return (
     <LayoutDashboard>
       <Container fluid my="xl">
@@ -24,16 +17,16 @@ export default function MissionControl({ sessionData }: Props) {
           Welcome to Mission Control, {sessionData.user?.name}!
         </Title>
 
-        {!missionItem && !isLoading && (
+        {/* {!missionItem && !isLoading && (
           <Paper p="xl">
             <Text mb="xl">You need to complete the preflight checks!</Text>
             <NextLink href={"/mission-control/preflight"} legacyBehavior>
               <Button>Launch today!</Button>
             </NextLink>
           </Paper>
-        )}
+        )} */}
 
-        <DashBoardWidgets missionItem={missionItem} isLoading={isLoading} />
+        <DashBoardWidgets />
       </Container>
     </LayoutDashboard>
   )

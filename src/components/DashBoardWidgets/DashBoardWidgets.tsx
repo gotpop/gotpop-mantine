@@ -1,3 +1,6 @@
+import useSWR from "swr"
+import { fetcher } from "@/utils/fetcher"
+
 import { SimpleGrid, Skeleton } from "@mantine/core"
 import { Mission } from "@prisma/client"
 
@@ -6,13 +9,9 @@ import { YourHeadstone } from "./YourHeadstone"
 import { YourMission } from "./YourMission"
 import { YourWishes } from "./YourWishes"
 
-type Props = {
-  missionItem: Mission | undefined
-  isLoading: boolean
-}
-
-export function DashBoardWidgets({ missionItem, isLoading }: Props) {
-  // const { missionType, contacts, nft, finalWish } = missionItem
+export function DashBoardWidgets() {
+  const { data, error, isLoading } = useSWR<Mission>("/api/mission", fetcher)
+  const { missionType, contacts, nft, finalWish } = { ...data } as Mission
 
   return (
     <>
@@ -27,22 +26,17 @@ export function DashBoardWidgets({ missionItem, isLoading }: Props) {
         ]}
       >
         <Skeleton visible={isLoading}>
-          <YourMission missionType={missionItem?.missionType} />
+          <YourMission missionType={missionType} />
         </Skeleton>
         <Skeleton visible={isLoading}>
-          <YourContacts contacts={missionItem?.contacts} />
+          <YourContacts contacts={contacts} />
         </Skeleton>
         <Skeleton visible={isLoading}>
-          <YourHeadstone nft={missionItem?.nft} />
+          <YourHeadstone nft={nft} />
         </Skeleton>
         <Skeleton visible={isLoading}>
-          <YourWishes finalWish={missionItem?.finalWish} />
+          <YourWishes finalWish={finalWish} />
         </Skeleton>
-        {/* {missionItem && (
-          <>
-           
-          </>
-        )} */}
       </SimpleGrid>
     </>
   )
