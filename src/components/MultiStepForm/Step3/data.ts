@@ -6,7 +6,7 @@ export const logoData = [
     },
     {
         id: "2",
-        label: "Paypal",
+        label: "PayPal",
         value: "paypal"
     },
     {

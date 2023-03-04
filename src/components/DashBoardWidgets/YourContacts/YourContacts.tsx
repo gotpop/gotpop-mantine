@@ -1,29 +1,30 @@
 import { Paper, Text } from "@mantine/core"
-import { Prisma } from "@prisma/client"
+import { Mission, Prisma } from "@prisma/client"
 import { contactsData } from "./data"
 
 type Props = {
-  contacts: Prisma.JsonValue[] | null | undefined
+  contacts: Mission["contacts"]
 }
 
 export function YourContacts({ contacts }: Props) {
-  // console.log("contacts :", contacts)
+  const activeContacts = contactsData?.filter((item, i) => {
+    if (contacts && contacts[i]?.active) {
+      return item.key === contacts[i].key
+    }
+  })
 
-  // const liam = contacts?.filter((contact, i) => {
-  //   console.log("contact :", contact)
-  //   const { key } = contact
-
-  //   return contact.key === contactsData[i].key
-  //   // // console.log("ontactsData[i].key :", contactsData[i].key)
-  // })
-
-  // console.log("liam :", liam)
+  const list = activeContacts.map(({ name, key, email }) => (
+    <Paper key={key}>
+      <Text weight="lighter">{name}</Text>
+      <Text>{email}</Text>
+    </Paper>
+  ))
 
   return (
     <>
       <Paper p="xl">
         <Text mb="xl">Your contacts</Text>
-        {/* {liam} */}
+        {list}
       </Paper>
     </>
   )

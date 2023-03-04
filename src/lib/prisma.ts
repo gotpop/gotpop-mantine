@@ -1,7 +1,20 @@
-import { Prisma, PrismaClient } from "@prisma/client"
+import { Mission, Prisma, PrismaClient } from "@prisma/client"
 
 declare global {
     var prisma: PrismaClient | undefined
+
+    namespace PrismaJson {
+        type NftType = {
+            logo: string
+            tagline: string
+            background: string
+        }
+
+        type ContactsType = {
+            key: string
+            active: boolean
+        }
+    }
 }
 
 const prisma = globalThis.prisma || new PrismaClient()

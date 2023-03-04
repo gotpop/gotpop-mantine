@@ -2,6 +2,14 @@ generator client {
   provider = "prisma-client-js"
 }
 
+/// Always after the prisma-client-js generator
+generator json {
+  provider  = "prisma-json-types-generator"
+  namespace = "PrismaJson"
+  // clientOutput = "<finds it automatically>"
+  // (./ -> relative to schema, or an importable path to require() it)
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -53,10 +61,13 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+// JSON Types generator uses the Prisma Client JS generator
 model Mission {
   id          String   @id @default(cuid())
   missionType String?
+  /// [ContactsType]
   contacts    Json[]
+  /// [NftType]
   nft         Json?
   finalWish   String?
   createdAt   DateTime @default(now())

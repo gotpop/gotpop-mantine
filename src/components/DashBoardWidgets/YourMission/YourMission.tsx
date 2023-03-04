@@ -2,10 +2,8 @@ import { Paper, Text, Title } from "@mantine/core"
 import { Mission } from "@prisma/client"
 import { missionData } from "./data"
 
-type MissonTypeProp = Pick<Mission, "missionType">
-
 type Props = {
-  missionType: MissonTypeProp["missionType"]
+  missionType: Mission["missionType"]
 }
 
 export function YourMission({ missionType }: Props) {
