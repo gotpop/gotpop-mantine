@@ -1,0 +1,1 @@
+export { FeaturesImages } from "./HomeBottom"

@@ -1,10 +1,23 @@
-import { imgPaths } from "@/utils/imgPaths"
-import { useStyles } from "./useStyles"
 import { BackgroundImage, Center, Overlay, Text, Title } from "@mantine/core"
+import { imgPaths } from "@/utils/imgPaths"
+import { useStyles } from "./HomeBottom.styles"
 
-export function FeaturesCards() {
-  const { classes, theme } = useStyles()
-  const img = imgPaths.img5
+interface FeatureImage {
+  image: string
+  title: React.ReactNode
+  description: React.ReactNode
+}
+
+interface FeaturesImagesProps {
+  supTitle: React.ReactNode
+  description: React.ReactNode
+  data: FeatureImage[]
+}
+
+export function FeaturesImages() {
+  // const { supTitle, description, data }: FeaturesImagesProps = mockData
+  const { classes } = useStyles()
+  const img = imgPaths.img3
 
   return (
     <>
