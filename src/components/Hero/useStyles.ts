@@ -6,7 +6,8 @@ export const useStyles = createStyles((theme: MantineTheme, img: string) => ({
         position: "relative",
         backgroundImage: `url(${img})`,
         backgroundSize: "cover",
-        backgroundPosition: "bottom center"
+        backgroundPosition: "top center",
+        minHeight: "100vh"
     },
     container: {
         height: 800,

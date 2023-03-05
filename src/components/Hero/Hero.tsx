@@ -1,5 +1,6 @@
 import { imgPaths } from "@/utils/imgPaths"
-import { Overlay, Container, Title, Button, Text } from "@mantine/core"
+import { Container, Overlay, Text, Title } from "@mantine/core"
+import { ButtonTheme } from "../ButtonTheme"
 import { useStyles } from "./useStyles"
 
 export function HeroContentLeft() {
@@ -14,21 +15,16 @@ export function HeroContentLeft() {
         zIndex={0}
       />
       <Container className={classes.container}>
-        <Title className={classes.title}>Mission to Mars</Title>
-        <Text className={classes.description} size="xl" mt="xl">
+        <Title order={2} className={classes.title}>
+          Mission to Mars
+        </Title>
+        <Text className={classes.description} size="xl" my="xl">
           Join SpaceX and NASA on a mission to Mars. We are looking for the best and brightest to join us in
           building the future of space exploration.
         </Text>
-
-        <Button
-          variant="gradient"
-          gradient={{ from: "orange", to: "red" }}
-          size="xl"
-          radius="xl"
-          className={classes.control}
-        >
-          Join Us
-        </Button>
+        <ButtonTheme radius={0} href="/login">
+          Join us
+        </ButtonTheme>
       </Container>
     </div>
   )

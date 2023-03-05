@@ -25,9 +25,7 @@ export function Layout({ children }: Props) {
           main: {
             backgroundColor: "whitesmoke",
             minHeight: "100vh",
-            paddingLeft: "0",
-            paddingRight: "0",
-            paddingTop: "0"
+            padding: "0"
           }
         }}
       >

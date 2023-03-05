@@ -9,7 +9,7 @@ export function Logo() {
 
   return (
     <Link href="/" className={classes.link}>
-      <Title order={3} className={classes.logo}>
+      <Title order={1} className={classes.logo}>
         <SpaceXIcon />
       </Title>
     </Link>

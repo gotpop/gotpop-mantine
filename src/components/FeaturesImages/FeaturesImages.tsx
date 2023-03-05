@@ -1,5 +1,5 @@
-import { Text, Container, Title, SimpleGrid } from "@mantine/core"
-import { mockData } from "./mockData"
+import { BackgroundImage, Center, Overlay, Text, Title } from "@mantine/core"
+import { imgPaths } from "@/utils/imgPaths"
 import { useStyles } from "./useStyles"
 
 interface FeatureImage {
@@ -15,42 +15,38 @@ interface FeaturesImagesProps {
 }
 
 export function FeaturesImages() {
-  const { supTitle, description, data }: FeaturesImagesProps = mockData
+  // const { supTitle, description, data }: FeaturesImagesProps = mockData
   const { classes } = useStyles()
-
-  const items = data.map((item) => (
-    <div className={classes.item} key={item.image}>
-      <div>
-        <Text weight={700} size="lg" className={classes.itemTitle}>
-          {item.title}
-        </Text>
-        <Text color="dimmed">{item.description}</Text>
-      </div>
-    </div>
-  ))
+  const img = imgPaths.img3
 
   return (
-    <Container size={700} className={classes.wrapper}>
-      <Text className={classes.supTitle}>{supTitle}</Text>
-
-      <Title className={classes.title} order={2}>
-        PharmLand is <span className={classes.highlight}>not</span> just for pharmacists
-      </Title>
-
-      <Container size={660} p={0}>
-        <Text color="dimmed" className={classes.description}>
-          {description}
-        </Text>
-      </Container>
-
-      <SimpleGrid
-        cols={2}
-        spacing={50}
-        breakpoints={[{ maxWidth: 550, cols: 1, spacing: 40 }]}
-        style={{ marginTop: 30 }}
+    <>
+      <BackgroundImage
+        src={img}
+        radius="xs"
+        style={{
+          minHeight: "100vh",
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
       >
-        {items}
-      </SimpleGrid>
-    </Container>
+        <Overlay
+          gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
+          opacity={1}
+          zIndex={0}
+        />
+        <Center p="md" style={{ zIndex: "2", maxWidth: 400, flexDirection: "column" }}>
+          <Title order={3} size="xl" color="#fff">
+            Features
+          </Title>
+          <Text color="#fff">
+            BackgroundImage component can be used to add any content on image. It is useful for hero headers
+            and other similar sections
+          </Text>
+        </Center>
+      </BackgroundImage>
+    </>
   )
 }
