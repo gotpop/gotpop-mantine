@@ -1,26 +1,22 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, MantineTheme } from '@mantine/core';
 
-export const useStyles = createStyles((theme) => ({
+export const useStyles = createStyles((theme: MantineTheme) => ({
+    centred: {
+        zIndex: 2,
+        maxWidth: 400,
+        flexDirection: "column"
+    },
     title: {
         fontSize: 60,
         fontWeight: 900,
+
         [theme.fn.smallerThan("sm")]: {
             fontSize: 24
         }
     },
     text: {
         maxWidth: 600,
+        fontSize: 20,
         margin: "auto",
-
-        "&::after": {
-            content: '""',
-            display: "block",
-            backgroundColor: theme.fn.primaryColor(),
-            width: 45,
-            height: 2,
-            marginTop: theme.spacing.md,
-            marginLeft: "auto",
-            marginRight: "auto"
-        }
     },
 }))

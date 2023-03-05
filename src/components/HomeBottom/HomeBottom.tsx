@@ -3,20 +3,7 @@ import { imgPaths } from "@/utils/imgPaths"
 import { useStyles } from "./HomeBottom.styles"
 import { ButtonTheme } from "../ButtonTheme"
 
-interface FeatureImage {
-  image: string
-  title: React.ReactNode
-  description: React.ReactNode
-}
-
-interface FeaturesImagesProps {
-  supTitle: React.ReactNode
-  description: React.ReactNode
-  data: FeatureImage[]
-}
-
 export function FeaturesImages() {
-  // const { supTitle, description, data }: FeaturesImagesProps = mockData
   const { classes } = useStyles()
   const img = imgPaths.img3
 
@@ -38,9 +25,9 @@ export function FeaturesImages() {
           opacity={1}
           zIndex={0}
         />
-        <Center p="md" style={{ zIndex: "2", maxWidth: 400, flexDirection: "column" }}>
+        <Center p="md" className={classes.centred}>
           <Title order={3} size="xl" color="#fff" className={classes.title}>
-            Features
+            Are you ready?
           </Title>
           <Text color="#fff" className={classes.text}>
             BackgroundImage component can be used to add any content on image. It is useful for hero headers
