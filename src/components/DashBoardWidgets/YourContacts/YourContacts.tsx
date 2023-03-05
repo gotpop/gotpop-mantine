@@ -14,7 +14,7 @@ export function YourContacts({ contacts }: Props) {
     }
   })
 
-  const list = activeContacts.map(({ name, key, email }) => <List.Item key={key}>{name}</List.Item>)
+  const list = activeContacts.map(({ name, key }) => <List.Item key={key}>{name}</List.Item>)
 
   return (
     <>

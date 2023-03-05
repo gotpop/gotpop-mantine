@@ -1,15 +1,21 @@
 import { DashBoardWidgets } from "@/components/DashBoardWidgets"
 import { LayoutDashboard } from "@/components/LayoutDashboard"
-import { Container, Title } from "@mantine/core"
+import { fetcher } from "@/utils/fetcher"
+import { Button, Container, Paper, Text, Title } from "@mantine/core"
+import { NextLink } from "@mantine/next"
+import { Mission } from "@prisma/client"
 import { GetServerSideProps } from "next"
 import { getServerSession, Session } from "next-auth"
 import { authOptions } from "../api/auth/[...nextauth]"
+import useSWR from "swr"
 
 type Props = {
   sessionData: Session
 }
 
 export default function MissionControl({ sessionData }: Props) {
+  const { data: missionData, error, isLoading } = useSWR<Mission>("/api/mission", fetcher)
+
   return (
     <LayoutDashboard>
       <Container fluid my="xl">
@@ -17,16 +23,16 @@ export default function MissionControl({ sessionData }: Props) {
           Welcome to Mission Control, {sessionData.user?.name}!
         </Title>
 
-        {/* {!missionItem && !isLoading && (
+        {!missionData && !isLoading && (
           <Paper p="xl">
             <Text mb="xl">You need to complete the preflight checks!</Text>
             <NextLink href={"/mission-control/preflight"} legacyBehavior>
               <Button>Launch today!</Button>
             </NextLink>
           </Paper>
-        )} */}
+        )}
 
-        <DashBoardWidgets />
+        {missionData && <DashBoardWidgets missionData={missionData} isLoading={isLoading} />}
       </Container>
     </LayoutDashboard>
   )

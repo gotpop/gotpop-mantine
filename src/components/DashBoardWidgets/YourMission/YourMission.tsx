@@ -6,18 +6,9 @@ type Props = {
   missionType: Mission["missionType"]
 }
 
-type missionDataType = {
-  key: string
-  title: string
-  description: string
-  email: string
-  phone: string
-  image: JSX.Element
-}
-
 export function YourMission({ missionType }: Props) {
-  const mission = missionData.find(({ key }: missionDataType) => key === missionType)
-  const { description, title, image } = { ...mission } as missionDataType
+  const mission = missionData.find(({ key }) => key === missionType)
+  const { description, title, image } = { ...mission }
 
   return (
     <Paper

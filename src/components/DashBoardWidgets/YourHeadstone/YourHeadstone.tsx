@@ -16,8 +16,8 @@ export function YourHeadstone({ nft }: Props) {
 
   const elements = [{ position: logoObj?.title, mass: taglineObj?.title, name: backgroundObj?.title }]
 
-  const rows = elements.map((element) => (
-    <tr key={element.name}>
+  const rows = elements.map((element, i) => (
+    <tr key={i}>
       <td>{element.position}</td>
       <td>{element.mass}</td>
       <td>{element.name}</td>

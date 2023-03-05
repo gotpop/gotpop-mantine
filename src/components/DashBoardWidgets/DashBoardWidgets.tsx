@@ -1,6 +1,3 @@
-import { fetcher } from "@/utils/fetcher"
-import useSWR from "swr"
-
 import { Grid, Skeleton } from "@mantine/core"
 import { Mission } from "@prisma/client"
 
@@ -9,9 +6,10 @@ import { YourHeadstone } from "./YourHeadstone"
 import { YourMission } from "./YourMission"
 import { YourWishes } from "./YourWishes"
 
-export function DashBoardWidgets() {
-  const { data, error, isLoading } = useSWR<Mission>("/api/mission", fetcher)
-  const { missionType, contacts, nft, finalWish } = { ...data } as Mission
+type Props = { missionData: Mission; isLoading: boolean }
+
+export function DashBoardWidgets({ missionData, isLoading }: Props) {
+  const { missionType, contacts, nft, finalWish } = missionData
 
   return (
     <Grid>
