@@ -1,6 +1,7 @@
 import { imgPaths } from "@/utils/imgPaths"
 import { useStyles } from "./HomeMiddle.styles"
 import { BackgroundImage, Center, Overlay, Text, Title } from "@mantine/core"
+import { ButtonTheme } from "../ButtonTheme"
 
 export function FeaturesCards() {
   const { classes, theme } = useStyles()
@@ -32,6 +33,9 @@ export function FeaturesCards() {
             BackgroundImage component can be used to add any content on image. It is useful for hero headers
             and other similar sections
           </Text>
+          <ButtonTheme radius={0} href="/login">
+            Join us
+          </ButtonTheme>
         </Center>
       </BackgroundImage>
     </>

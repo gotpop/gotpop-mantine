@@ -14,7 +14,7 @@ export const useStyles = createStyles((theme: MantineTheme, img: string) => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-        alignItems: "flex-start",
+        alignItems: "flex-sta   rt",
         paddingBottom: theme.spacing.xl * 10,
         zIndex: 1,
         position: "relative",

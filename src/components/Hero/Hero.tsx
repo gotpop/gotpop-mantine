@@ -1,7 +1,7 @@
 import { imgPaths } from "@/utils/imgPaths"
 import { Container, Overlay, Text, Title } from "@mantine/core"
 import { ButtonTheme } from "../ButtonTheme"
-import { useStyles } from "./useStyles"
+import { useStyles } from "./Hero.styles"
 
 export function HeroContentLeft() {
   const img = imgPaths.img2

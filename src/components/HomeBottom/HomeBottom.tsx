@@ -1,6 +1,7 @@
 import { BackgroundImage, Center, Overlay, Text, Title } from "@mantine/core"
 import { imgPaths } from "@/utils/imgPaths"
 import { useStyles } from "./HomeBottom.styles"
+import { ButtonTheme } from "../ButtonTheme"
 
 interface FeatureImage {
   image: string
@@ -38,13 +39,16 @@ export function FeaturesImages() {
           zIndex={0}
         />
         <Center p="md" style={{ zIndex: "2", maxWidth: 400, flexDirection: "column" }}>
-          <Title order={3} size="xl" color="#fff">
+          <Title order={3} size="xl" color="#fff" className={classes.title}>
             Features
           </Title>
-          <Text color="#fff">
+          <Text color="#fff" className={classes.text}>
             BackgroundImage component can be used to add any content on image. It is useful for hero headers
             and other similar sections
           </Text>
+          <ButtonTheme radius={0} href="/login">
+            Join us
+          </ButtonTheme>
         </Center>
       </BackgroundImage>
     </>
