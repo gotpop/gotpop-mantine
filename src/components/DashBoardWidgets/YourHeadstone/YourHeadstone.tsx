@@ -14,13 +14,19 @@ export function YourHeadstone({ nft }: Props) {
   const taglineObj = headstoneData.tagline.find(({ key }) => key === tagline)
   const backgroundObj = headstoneData.background.find(({ key }) => key === background)
 
-  const elements = [{ position: logoObj?.title, mass: taglineObj?.title, name: backgroundObj?.title }]
+  const items = [
+    {
+      logo: logoObj?.title,
+      tagline: taglineObj?.title,
+      background: backgroundObj?.title
+    }
+  ]
 
-  const rows = elements.map((element, i) => (
+  const rows = items.map(({ logo, tagline, background }, i) => (
     <tr key={i}>
-      <td>{element.position}</td>
-      <td>{element.mass}</td>
-      <td>{element.name}</td>
+      <td>{logo}</td>
+      <td>{tagline}</td>
+      <td>{background}</td>
     </tr>
   ))
 
