@@ -13,7 +13,8 @@ export const missionData: missionDataType = [
   {
     key: "launch",
     title: "Mars launch",
-    description: "Die on the way to Mars",
+    description:
+      "You're a hero! A pioneer! An alpha.. tester, of our Mars launch program. You'll be strapped to the tip of a solid state booster containing 3,400 tonnes of liquid hydrogen. Remember tought guys don't look at explosions.",
     email: "dvcd",
     phone: "dvcdc",
     image: <Rocket />
