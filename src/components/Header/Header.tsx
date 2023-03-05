@@ -10,7 +10,7 @@ export function HeaderItem({ wrapperCondition = false }) {
   const { data: session, status } = useSession()
   const { classes } = useStyles()
 
-  const login = () => (
+  const Login = () => (
     <NextLink href="/login" color="gray" legacyBehavior className={classes.link}>
       Join us
     </NextLink>
@@ -29,8 +29,8 @@ export function HeaderItem({ wrapperCondition = false }) {
         <>
           <Logo />
           <Group position="right">
-            {session ? null : login()}
-            <UserMenu />
+            {session ? null : <Login />}
+            {status === "loading" ? null : session ? <UserMenu /> : null}
           </Group>
         </>
       </ConditionalWrapper>
