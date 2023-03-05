@@ -1,6 +1,6 @@
 import { Paper, Table, Title } from "@mantine/core"
 import { Mission } from "@prisma/client"
-import { IconBrandPaypal } from "@tabler/icons-react"
+import { useStyles } from "../DashBoardWidgets.styles"
 import { headstoneData } from "./data"
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
 
 export function YourHeadstone({ nft }: Props) {
   const { logo, tagline, background } = { ...nft }
+  const { classes } = useStyles()
 
   const logoObj = headstoneData.logo.find(({ key }) => key === logo)
   const taglineObj = headstoneData.tagline.find(({ key }) => key === tagline)
@@ -31,14 +32,9 @@ export function YourHeadstone({ nft }: Props) {
   ))
 
   return (
-    <Paper p="xl" style={{ gap: "1rem", height: "100%", flex: "1" }}>
-      <Title
-        order={3}
-        mb="xl"
-        style={{ display: "flex", alignItems: "center", gap: "1rem", justifyContent: "space-between" }}
-      >
+    <Paper p="xl" className={classes.paper}>
+      <Title order={3} mb="xl">
         Your NFT gravestone
-        <IconBrandPaypal />
       </Title>
 
       <Table striped highlightOnHover>

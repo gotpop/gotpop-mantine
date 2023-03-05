@@ -1,5 +1,6 @@
 import { Box, Paper, Text, Title } from "@mantine/core"
 import { Mission } from "@prisma/client"
+import { useStyles } from "../DashBoardWidgets.styles"
 import { missionData } from "./data"
 
 type Props = {
@@ -9,12 +10,10 @@ type Props = {
 export function YourMission({ missionType }: Props) {
   const mission = missionData.find(({ key }) => key === missionType)
   const { description, title, image } = { ...mission }
+  const { classes } = useStyles()
 
   return (
-    <Paper
-      p="xl"
-      style={{ display: "flex", gap: "1rem", justifyContent: "space-between", height: "100%", flex: "1" }}
-    >
+    <Paper p="xl" className={classes.paper}>
       <Box>
         <Title order={3} mb="xl">
           Your mission

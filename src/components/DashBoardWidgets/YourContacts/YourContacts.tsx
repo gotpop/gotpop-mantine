@@ -1,6 +1,7 @@
 import { List, Paper, Text, ThemeIcon, Title } from "@mantine/core"
 import { Mission } from "@prisma/client"
 import { IconCircleCheck } from "@tabler/icons-react"
+import { useStyles } from "../DashBoardWidgets.styles"
 import { contactsData } from "./data"
 
 type Props = {
@@ -8,9 +9,11 @@ type Props = {
 }
 
 export function YourContacts({ contacts }: Props) {
-  const activeContacts = contactsData?.filter((item, i) => {
+  const { classes } = useStyles()
+
+  const activeContacts = contactsData?.filter(({ key }, i) => {
     if (contacts && contacts[i]?.active) {
-      return item.key === contacts[i].key
+      return key === contacts[i].key
     }
   })
 
@@ -18,17 +21,7 @@ export function YourContacts({ contacts }: Props) {
 
   return (
     <>
-      <Paper
-        p="xl"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          justifyContent: "space-between",
-          height: "100%",
-          flex: "1"
-        }}
-      >
+      <Paper p="xl" className={classes.paper}>
         <Title order={3}>Next of kin</Title>
         <Text>We will contact the people closest to you in case of any technical issues.</Text>
         <List
@@ -36,7 +29,7 @@ export function YourContacts({ contacts }: Props) {
           size="sm"
           center
           icon={
-            <ThemeIcon color="teal" size={24} radius="xl">
+            <ThemeIcon color="teal" size={30} radius="xl">
               <IconCircleCheck size="1rem" />
             </ThemeIcon>
           }
