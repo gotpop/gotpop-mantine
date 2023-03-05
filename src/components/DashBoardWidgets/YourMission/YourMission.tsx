@@ -14,14 +14,16 @@ export function YourMission({ missionType }: Props) {
 
   return (
     <Paper p="xl" className={classes.paper}>
-      <Box>
+      <Box className={classes.content}>
         <Title order={3} mb="xl">
           Your mission
         </Title>
-        <Text weight="bold">{title}</Text>
+        <Text weight="bold" mb="md">
+          {title}
+        </Text>
         <Text>{description}</Text>
       </Box>
-      <Box>{image}</Box>
+      <Box className={classes.image}>{image}</Box>
     </Paper>
   )
 }

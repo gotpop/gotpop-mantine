@@ -1,4 +1,4 @@
-import { Paper, Table, Title } from "@mantine/core"
+import { Box, Paper, Table, Title } from "@mantine/core"
 import { Mission } from "@prisma/client"
 import { useStyles } from "../DashBoardWidgets.styles"
 import { headstoneData } from "./data"
@@ -33,20 +33,22 @@ export function YourHeadstone({ nft }: Props) {
 
   return (
     <Paper p="xl" className={classes.paper}>
-      <Title order={3} mb="xl">
-        Your NFT gravestone
-      </Title>
+      <Box className={classes.content}>
+        <Title order={3} mb="xl">
+          Your NFT gravestone
+        </Title>
 
-      <Table striped highlightOnHover>
-        <thead>
-          <tr>
-            <th>Logo</th>
-            <th>Tagline</th>
-            <th>Background</th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </Table>
+        <Table striped highlightOnHover>
+          <thead>
+            <tr>
+              <th>Logo</th>
+              <th>Tagline</th>
+              <th>Background</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </Table>
+      </Box>
     </Paper>
   )
 }
