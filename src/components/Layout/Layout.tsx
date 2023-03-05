@@ -21,13 +21,9 @@ export function Layout({ children }: Props) {
       <AppShell
         header={<HeaderItem wrapperCondition />}
         footer={<FooterItem {...footerData} />}
-        styles={{
-          main: {
-            backgroundColor: "whitesmoke",
-            minHeight: "100vh",
-            padding: "0"
-          }
-        }}
+        styles={(theme) => ({
+          main: { padding: 0, backgroundColor: theme.colors.gray[1] }
+        })}
       >
         {children}
       </AppShell>
