@@ -1,6 +1,6 @@
-import { Box, Paper, Table, Text, Title } from "@mantine/core"
-import { Mission, Prisma } from "@prisma/client"
-import { IconBrandFacebook, IconBrandPaypal } from "@tabler/icons-react"
+import { Paper, Table, Title } from "@mantine/core"
+import { Mission } from "@prisma/client"
+import { IconBrandPaypal } from "@tabler/icons-react"
 import { headstoneData } from "./data"
 
 type Props = {
