@@ -8,6 +8,7 @@ import { useStyles } from "./useStyles"
 
 export function HeaderItem({ wrapperCondition = false }) {
   const { data: session, status } = useSession()
+  console.log("session, status :", session, status)
   const { classes } = useStyles()
 
   const Login = () => (
@@ -29,7 +30,7 @@ export function HeaderItem({ wrapperCondition = false }) {
         <>
           <Logo />
           <Group position="right">
-            {session ? null : <Login />}
+            {status === "loading" ? null : !session ? <Login /> : null}
             {status === "loading" ? null : session ? <UserMenu /> : null}
           </Group>
         </>
