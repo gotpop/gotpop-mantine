@@ -4,7 +4,7 @@ import { useStyles } from "../DashBoardWidgets.styles"
 import { wishData } from "./data"
 
 type Props = {
-  finalWish: Mission["finalWish"]
+  finalWish: Mission["finalWish"] | undefined
 }
 
 export function YourWishes({ finalWish }: Props) {

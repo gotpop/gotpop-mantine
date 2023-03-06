@@ -7,10 +7,10 @@ import { YourContacts } from "./YourContacts"
 import { YourHeadstone } from "./YourHeadstone"
 import { YourWishes } from "./YourWishes"
 
-type Props = { missionData: Mission; isLoading: boolean }
+type Props = { missionData: Mission | undefined; isLoading: boolean }
 
 export function DashBoardWidgets({ missionData, isLoading }: Props) {
-  const { missionType, contacts, nft, finalWish } = missionData
+  const { missionType, contacts, nft, finalWish } = { ...missionData }
   const { classes } = useStyles()
 
   return (

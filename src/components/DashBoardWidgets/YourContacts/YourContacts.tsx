@@ -5,7 +5,7 @@ import { useStyles } from "../DashBoardWidgets.styles"
 import { contactsData } from "./data"
 
 type Props = {
-  contacts: Mission["contacts"]
+  contacts: Mission["contacts"] | undefined
 }
 
 export function YourContacts({ contacts }: Props) {

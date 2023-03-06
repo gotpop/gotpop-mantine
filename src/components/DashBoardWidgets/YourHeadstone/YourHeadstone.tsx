@@ -4,7 +4,7 @@ import { useStyles } from "../DashBoardWidgets.styles"
 import { headstoneData } from "./data"
 
 type Props = {
-  nft: Mission["nft"]
+  nft: Mission["nft"] | undefined
 }
 
 export function YourHeadstone({ nft }: Props) {

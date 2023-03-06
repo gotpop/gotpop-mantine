@@ -4,7 +4,7 @@ import { useStyles } from "../DashBoardWidgets.styles"
 import { missionData } from "./data"
 
 type Props = {
-  missionType: Mission["missionType"]
+  missionType: Mission["missionType"] | undefined
 }
 
 export function YourMission({ missionType }: Props) {
