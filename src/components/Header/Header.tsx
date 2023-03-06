@@ -8,7 +8,6 @@ import { useStyles } from "./useStyles"
 
 export function HeaderItem({ wrapperCondition = false }) {
   const { data: session, status } = useSession()
-  console.log("session, status :", session, status)
   const { classes } = useStyles()
 
   const Login = () => (
