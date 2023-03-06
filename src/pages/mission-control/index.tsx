@@ -15,6 +15,7 @@ type Props = {
 
 export default function MissionControl({ sessionData }: Props) {
   const { data: missionData, error, isLoading } = useSWR<Mission>("/api/mission", fetcher)
+  console.log("missionData :", missionData)
 
   return (
     <LayoutDashboard>
@@ -23,7 +24,7 @@ export default function MissionControl({ sessionData }: Props) {
           Welcome to Mission Control, {sessionData.user?.name}!
         </Title>
 
-        {!missionData && !isLoading && (
+        {missionData === null && !isLoading && (
           <Paper p="xl">
             <Text mb="xl">You need to complete the preflight checks!</Text>
             <NextLink href={"/mission-control/preflight"} legacyBehavior>
@@ -32,7 +33,7 @@ export default function MissionControl({ sessionData }: Props) {
           </Paper>
         )}
 
-        <DashBoardWidgets missionData={missionData} isLoading={isLoading} />
+        {missionData === undefined && <DashBoardWidgets missionData={missionData} isLoading={isLoading} />}
       </Container>
     </LayoutDashboard>
   )
