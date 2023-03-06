@@ -33,7 +33,8 @@ export default function MissionControl({ sessionData }: Props) {
           </Paper>
         )}
 
-        {missionData === undefined && <DashBoardWidgets missionData={missionData} isLoading={isLoading} />}
+        {missionData === undefined ||
+          (missionData && <DashBoardWidgets missionData={missionData} isLoading={isLoading} />)}
       </Container>
     </LayoutDashboard>
   )
