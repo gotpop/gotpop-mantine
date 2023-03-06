@@ -1,14 +1,14 @@
 import { Layout } from "@/components/Layout"
-import { HeroContentLeft } from "@/components/Hero"
-import { FeaturesCards } from "@/components/HomeMiddle"
-import { FeaturesImages } from "@/components/HomeBottom"
+import { Hero } from "@/components/Hero"
+import { HomeMiddle } from "@/components/HomeMiddle"
+import { HomeBottom } from "@/components/HomeBottom"
 
 export default function Home() {
   return (
     <Layout>
-      <HeroContentLeft></HeroContentLeft>
-      <FeaturesCards></FeaturesCards>
-      <FeaturesImages></FeaturesImages>
+      <Hero />
+      <HomeMiddle />
+      <HomeBottom />
     </Layout>
   )
 }

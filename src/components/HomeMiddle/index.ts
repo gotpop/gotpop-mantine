@@ -1,1 +1,1 @@
-export { FeaturesCards } from "./HomeMiddle"
+export { HomeMiddle } from "./HomeMiddle"

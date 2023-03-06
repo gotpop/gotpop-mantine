@@ -1,7 +1,7 @@
 // MyComponent.tsx
 import { DefaultProps, Selectors, MantineNumberSize, Box, UnstyledButton } from "@mantine/core"
 import Link from "next/link"
-import useStyles, { MyComponentStylesParams } from "./MyComponent.styles"
+import useStyles, { MyComponentStylesParams } from "./ButtonTheme.styles"
 
 // This type will contain a union with all selectors defined in useStyles,
 // in this case it will be `'root' | 'title' | 'description'`

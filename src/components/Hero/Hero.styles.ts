@@ -2,33 +2,28 @@ import { MantineTheme } from '@mantine/core';
 import { createStyles } from '@mantine/core'
 
 export const useStyles = createStyles((theme: MantineTheme, img: string) => ({
-    hero: {
+    background: {
         position: "relative",
         backgroundImage: `url(${img})`,
         backgroundSize: "cover",
         backgroundPosition: "top center",
-        minHeight: "100vh"
+        minHeight: "100vh",
+        display: "grid",
+        alignContent: "center",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        padding: "calc(60px + 2rem) 2rem 2rem 2rem",
     },
-    container: {
-        height: 800,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
-        alignItems: "start",
-        paddingBottom: theme.spacing.xl * 10,
+    content: {
+        gridColumn: "2 / 6",
         zIndex: 1,
         position: "relative",
-
-        [theme.fn.smallerThan("sm")]: {
-            height: 500,
-            paddingBottom: theme.spacing.xl * 3
-        }
     },
     title: {
         color: theme.white,
         fontSize: 60,
         fontWeight: 900,
-        lineHeight: 1.1,
+        lineHeight: .8,
+        marginBottom: theme.spacing.xl,
 
         [theme.fn.smallerThan("sm")]: {
             fontSize: 40,
@@ -43,17 +38,11 @@ export const useStyles = createStyles((theme: MantineTheme, img: string) => ({
     description: {
         color: theme.white,
         maxWidth: 600,
+        marginBottom: theme.spacing.xl * 2,
 
         [theme.fn.smallerThan("sm")]: {
             maxWidth: "100%",
             fontSize: theme.fontSizes.sm
         }
     },
-    control: {
-        marginTop: theme.spacing.xl * 1.5,
-
-        [theme.fn.smallerThan("sm")]: {
-            width: "100%"
-        }
-    }
 }))

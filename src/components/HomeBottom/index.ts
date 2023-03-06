@@ -1,1 +1,1 @@
-export { FeaturesImages } from "./HomeBottom"
+export { HomeBottom } from "./HomeBottom"

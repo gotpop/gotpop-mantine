@@ -6,13 +6,14 @@ export interface MyComponentStylesParams {
 
 export default createStyles((theme, { radius }: MyComponentStylesParams) => ({
     root: {
-        borderRadius: theme.fn.radius(radius),
         border: '2px solid white',
+        borderRadius: theme.fn.radius(radius),
+        color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.white,
+        display: 'inline-flex',
+        paddingBottom: theme.spacing.sm,
         paddingLeft: theme.spacing.xl * 2,
         paddingRight: theme.spacing.xl * 2,
         paddingTop: theme.spacing.sm,
-        paddingBottom: theme.spacing.sm,
-        color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.white,
         textDecoration: 'none',
         textTransform: 'uppercase',
 

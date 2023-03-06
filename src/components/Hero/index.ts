@@ -1,1 +1,1 @@
-export { HeroContentLeft } from "./Hero"
+export { Hero } from "./Hero"
