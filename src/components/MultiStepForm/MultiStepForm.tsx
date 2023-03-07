@@ -13,9 +13,10 @@ import { Step4 } from "@/components/MultiStepForm/Step4"
 import { StepControls } from "./StepControls/StepControls"
 import { IconCheck, IconChevronLeft, IconChevronRight, IconRocket } from "@tabler/icons-react"
 
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { useStyles } from "./useStyles"
+import NotificationContext from "@/context/notificationContext"
 
 type MissionNoMeta = Omit<Mission, "id" | "createdAt" | "updatedAt" | "userId">
 
@@ -34,6 +35,8 @@ export type FormValues = {
 }
 
 export const MultiStepForm = () => {
+  // const notificationCtx = useContext(NotificationContext)
+  const notificationCtx = useContext(NotificationContext)
   const router = useRouter()
   const { classes } = useStyles()
   const [isLoading, setIsLoading] = useState(false)
@@ -118,8 +121,15 @@ export const MultiStepForm = () => {
     })
 
     setIsLoading(false)
+    notificationCtx.success("Success: Project was fetched!")
     router.push("/mission-control")
   }
+
+  useEffect(() => {
+    Object.keys(form.errors).map((key) => {
+      notificationCtx.error(form.errors[key])
+    })
+  }, [form, notificationCtx])
 
   const nextStep = () => {
     setActive((current) => {
@@ -128,6 +138,7 @@ export const MultiStepForm = () => {
       }
       return current < 4 ? current + 1 : current
     })
+    notificationCtx.clear()
   }
 
   const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current))
