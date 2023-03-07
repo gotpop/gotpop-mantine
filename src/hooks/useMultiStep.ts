@@ -1,8 +1,7 @@
 import { useForm } from "@mantine/form"
 import { formInit } from "../components/MultiStepForm/form"
-
-
-import { SetStateAction, useContext, useEffect, useState } from "react"
+import { SetStateAction, useEffect, useState } from "react"
+import { notifications } from "@mantine/notifications"
 
 export function useMultiStep() {
     const [active, setActive] = useState<number>(0)
@@ -11,42 +10,38 @@ export function useMultiStep() {
 
     const prevStep = () => {
         setActive((current) => (current > 0 ? current - 1 : current))
-    }
 
-    const nextStep = () => {
-        handleActive((current) => {
-            if (form.validate().hasErrors) {
-                return current
-            }
-            return current < 4 ? current + 1 : current
-        })
+        notifications.clean()
     }
 
     const form = useForm({
         initialValues: formInit,
-        validate: (values) => {
+        validate: ({ missionType, contacts, nft, finalWish }) => {
             if (active === 0) {
                 return {
-                    missionType: values.missionType.trim().length < 1 ? "Pick a mission" : null
+                    missionType: missionType.length === 0 ? "Pick a mission" : null
                 }
             }
+
             if (active === 1) {
-                const checkboxes = values.contacts.filter((contact) => contact.active === true)
+                const checkboxes = contacts.filter(({ active }) => active === true)
 
                 return {
-                    contacts: checkboxes.length < 1 ? "Pick a contact" : null
+                    contacts: checkboxes.length === 0 ? "Pick a contact" : null
                 }
             }
+
             if (active === 2) {
                 return {
-                    nftLogo: values.nft.logo.trim().length < 1 ? "Pick a Logo" : null,
-                    nftTagline: values.nft.tagline.trim().length < 1 ? "Pick a Tagline" : null,
-                    nftBackground: values.nft.background.trim().length < 1 ? "Pick a Background" : null
+                    nftLogo: nft.logo.length === 0 ? "Pick a Logo" : null,
+                    nftTagline: nft.tagline.length === 0 ? "Pick a Tagline" : null,
+                    nftBackground: nft.background.length === 0 ? "Pick a Background" : null
                 }
             }
+
             if (active === 3) {
                 return {
-                    finalWish: values.finalWish.trim().length < 1 ? "Pick a final wish" : null
+                    finalWish: finalWish.length === 0 ? "Pick a final wish" : null
                 }
             }
 
@@ -54,10 +49,28 @@ export function useMultiStep() {
         }
     })
 
-    useEffect(() => {
+    const nextStep = () => {
+        handleActive((current) => {
+            if (form.validate().hasErrors) {
+                return current
+            }
 
+            return current < 4 ? current + 1 : current
+        })
+
+        notifications.clean()
+    }
+
+
+
+    useEffect(() => {
         Object.keys(form.errors).map((key) => {
-            // notificationCtx.error(form.errors[key])
+            notifications.show({
+                title: 'Error',
+                message: form.errors[key],
+                color: 'red',
+                // icon: <IconX />,
+            })
         })
     }, [form.errors])
 
