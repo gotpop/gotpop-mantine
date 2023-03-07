@@ -16,6 +16,7 @@ export function useMultiStep() {
 
     const form = useForm({
         initialValues: formInit,
+        validateInputOnChange: true,
         validate: ({ missionType, contacts, nft, finalWish }) => {
             if (active === 0) {
                 return {
@@ -27,7 +28,7 @@ export function useMultiStep() {
                 const checkboxes = contacts.filter(({ active }) => active === true)
 
                 return {
-                    contacts: checkboxes.length === 0 ? "Pick a contact" : null
+                    contacts: checkboxes.length <= 2 ? "Pick at least 3 contacts" : null
                 }
             }
 
@@ -61,18 +62,17 @@ export function useMultiStep() {
         notifications.clean()
     }
 
-
-
     useEffect(() => {
+        if (form.isValid()) return
+
         Object.keys(form.errors).map((key) => {
             notifications.show({
                 title: 'Error',
                 message: form.errors[key],
                 color: 'red',
-                // icon: <IconX />,
             })
         })
-    }, [form.errors])
+    }, [form])
 
     return {
         form,

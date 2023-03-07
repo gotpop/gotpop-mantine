@@ -32,7 +32,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
             headings: { fontFamily: "var(--font-bebas), Greycliff CF, sans-serif" }
           }}
         >
-          <Notifications />
+          <Notifications limit={3} />
           <Component {...pageProps} />
         </MantineProvider>
       </SessionProvider>

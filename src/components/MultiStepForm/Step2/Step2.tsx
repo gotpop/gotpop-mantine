@@ -16,7 +16,7 @@ export function Step2({ form }: Props) {
       {...form.getInputProps(`contacts.${index}.active`, { type: "checkbox" })}
       key={id}
       label={label}
-      error={form.errors.contacts ? <></> : null}
+      error={!form.isValid() && form.isTouched(`contacts`) ? <></> : null}
     />
   ))
 
