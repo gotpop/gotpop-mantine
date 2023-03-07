@@ -55,10 +55,12 @@ export function useMultiStep() {
     })
 
     useEffect(() => {
+        notificationCtx.clear()
+
         Object.keys(form.errors).map((key) => {
             notificationCtx.error(form.errors[key])
         })
-    }, [form, notificationCtx])
+    }, [form.errors])
 
     return {
         form,

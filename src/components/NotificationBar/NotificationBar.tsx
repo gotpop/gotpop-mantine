@@ -4,26 +4,30 @@ import { useStyles } from "./NotificationBar.styles"
 import { Notification } from "@mantine/core"
 
 export const NotificationBar = () => {
-  const notificationCtx = useContext(NotificationContext)
+  const { notifications, notification, notificationText, clear } = useContext(NotificationContext)
   const { classes } = useStyles()
 
   useEffect(() => {
-    console.log("notificationCtx :", notificationCtx)
-  }, [notificationCtx])
+    console.log("notificationCtx :", notifications)
+  }, [notifications])
+
+  const notes = notifications?.map((note, i) => {
+    console.log("note, i :", note, i)
+
+    return (
+      <Notification key={i} disallowClose color="red" p={20} mb={10}>
+        {note.text}
+      </Notification>
+    )
+  })
 
   return (
     <>
-      {notificationCtx.notification !== null && (
+      {notifications.length !== 0 && (
         <>
-          <div className={classes.root}>
-            <Notification disallowClose color="red" p={20}>
-              {notificationCtx.notificationText}
-            </Notification>
-          </div>
+          <div className={classes.root}>{notes && notes}</div>
         </>
       )}
     </>
   )
 }
-
-// notificationCtx.notification !== null && (

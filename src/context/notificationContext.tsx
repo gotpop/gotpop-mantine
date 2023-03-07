@@ -3,6 +3,7 @@ import React, { ReactNode, useState } from "react"
 
 type NotificationContextType = {
   notification: string | null
+  notifications: any[]
   notificationText: string | null | undefined | ReactNode
   success: (text: string) => void
   error: (text: string | FormErrors[string]) => void
@@ -11,6 +12,7 @@ type NotificationContextType = {
 
 const NotificationContext = React.createContext<NotificationContextType>({
   notification: null,
+  notifications: [],
   notificationText: null,
   success: (text) => {},
   error: (text) => {},
@@ -29,6 +31,7 @@ type Props = {
 const NotificationProvider = ({ children }: Props) => {
   const [notification, setNotification] = useState<null | string>(null)
   const [notificationText, setNotificationText] = useState<null | string | ReactNode>(null)
+  const [notifications, setNotifications] = useState([])
 
   const success = (text: string) => {
     setNotificationText(text)
@@ -38,11 +41,19 @@ const NotificationProvider = ({ children }: Props) => {
   const error = (text: string | React.ReactNode) => {
     setNotificationText(text)
     setNotification(STATES.ERROR)
+
+    const obj = {
+      text,
+      type: STATES.ERROR
+    }
+
+    setNotifications((prev) => [...prev, obj])
   }
 
   const clear = () => {
-    setNotificationText(null)
-    setNotification(null)
+    // setNotificationText(null)
+    // setNotification(null)
+    setNotifications([])
   }
 
   return (
@@ -52,6 +63,7 @@ const NotificationProvider = ({ children }: Props) => {
         error,
         clear,
         notification,
+        notifications,
         notificationText
       }}
     >
