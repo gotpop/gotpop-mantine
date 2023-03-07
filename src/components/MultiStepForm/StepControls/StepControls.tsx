@@ -1,5 +1,5 @@
-import { Button, Code, Group, TextInput } from "@mantine/core"
-import { useStyles } from "../useStyles"
+import { Button, Group } from "@mantine/core"
+import { IconChevronLeft, IconChevronRight, IconRocket } from "@tabler/icons-react"
 
 type Props = {
   active: number
@@ -9,17 +9,15 @@ type Props = {
 }
 
 export function StepControls({ active, nextStep, prevStep, isLoading }: Props) {
-  const { classes } = useStyles()
-
   return (
     <Group position="center" mt="xl">
       {active !== 0 && (
-        <Button size="xl" variant="default" onClick={prevStep}>
+        <Button size="lg" variant="default" onClick={prevStep} leftIcon={<IconChevronLeft />}>
           Back
         </Button>
       )}
-      {active !== 6 && (
-        <Button size="xl" onClick={nextStep}>
+      {active !== 4 && (
+        <Button size="lg" onClick={nextStep} rightIcon={<IconChevronRight />}>
           Next step
         </Button>
       )}
@@ -29,9 +27,10 @@ export function StepControls({ active, nextStep, prevStep, isLoading }: Props) {
           type="submit"
           variant="gradient"
           gradient={{ from: "teal", to: "lime", deg: 105 }}
-          size="xl"
+          size="lg"
+          rightIcon={<IconRocket />}
         >
-          Submit
+          Go!
         </Button>
       )}
     </Group>
