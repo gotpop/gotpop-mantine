@@ -51,8 +51,6 @@ export function Step3({ form }: Props) {
             description="What have you got to lose?"
             label="Choose a logo"
             name="chooseALogo"
-            offset={40}
-            orientation="vertical"
             required
             size="md"
           >
@@ -65,8 +63,6 @@ export function Step3({ form }: Props) {
             description="What have you got to lose?"
             label="Choose a tagline"
             name="chooseATagline"
-            offset={40}
-            orientation="vertical"
             required
             size="md"
           >
@@ -79,8 +75,6 @@ export function Step3({ form }: Props) {
             description="What have you got to lose?"
             label="Choose background"
             name="chooseABackground"
-            offset={40}
-            orientation="vertical"
             required
             size="md"
           >

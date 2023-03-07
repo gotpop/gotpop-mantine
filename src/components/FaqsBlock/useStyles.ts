@@ -2,8 +2,8 @@ import { createStyles, MantineTheme } from "@mantine/core";
 
 export const useStyles = createStyles((theme: MantineTheme, img: string) => ({
     wrapper: {
-        paddingTop: theme.spacing.xl * 2,
-        paddingBottom: theme.spacing.xl * 2,
+        paddingTop: theme.spacing.xxl,
+        paddingBottom: theme.spacing.xxl,
         backgroundImage: `url(${img})`,
         backgroundPosition: "center right",
         backgroundSize: "cover",

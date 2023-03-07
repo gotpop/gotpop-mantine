@@ -22,8 +22,6 @@ export function Step4({ form }: Props) {
           error={<></>}
           label="Choose a tagline"
           name="finalWish"
-          offset={40}
-          orientation="vertical"
           required
           size="md"
         >

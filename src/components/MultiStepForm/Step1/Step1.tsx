@@ -18,7 +18,6 @@ export function Step1({ form }: Props) {
       error={<></>}
       label="Choose the mission of a lifetime"
       name="chooseAMission"
-      offset={40}
       required
       size="xl"
     >

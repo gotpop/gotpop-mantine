@@ -38,7 +38,7 @@ export const useStyles = createStyles((theme: MantineTheme, img: string) => ({
         color: theme.white,
         maxWidth: 600,
         fontSize: 25,
-        marginBottom: theme.spacing.xl * 2,
+        marginBottom: theme.spacing.xxl,
 
         [theme.fn.smallerThan("sm")]: {
             maxWidth: "100%",

@@ -1,7 +1,7 @@
 import { createStyles } from "@mantine/core"
 
-export const useStyles = createStyles<string, { collapsed?: boolean }>((theme, params, getRef) => {
-    const icon: string = getRef("icon")
+export const useStyles = createStyles<string, { collapsed?: boolean }>((theme, params) => {
+    // const icon: string = getRef("icon")
 
     return {
         navbar: {
@@ -50,24 +50,24 @@ export const useStyles = createStyles<string, { collapsed?: boolean }>((theme, p
                 backgroundColor: theme.colors.gray[0],
                 color: theme.black,
 
-                [`& .${icon}`]: {
-                    color: theme.black
-                }
+                // [`& .${icon}`]: {
+                //     color: theme.black
+                // }
             }
         },
         linkActive: {
             "&, &:hover": {
                 backgroundColor: theme.colors[theme.primaryColor][0],
                 color: theme.colors[theme.primaryColor][7],
-                [`& .${icon}`]: {
-                    color: theme.colors[theme.primaryColor][7]
-                }
+                // [`& .${icon}`]: {
+                //     color: theme.colors[theme.primaryColor][7]
+                // }
             }
         },
-        linkIcon: {
-            ref: icon,
-            color: theme.colors.gray[6]
-        },
+        // linkIcon: {
+        //     ref: icon,
+        //     color: theme.colors.gray[6]
+        // },
         linkLabel: params?.collapsed ? { display: "none" } : {}
     }
 })

@@ -11,7 +11,7 @@ import {
 } from "@tabler/icons-react"
 import { signOut, useSession } from "next-auth/react"
 import { useStyles } from "./useStyles"
-import { NextLink } from "@mantine/next"
+import Link from "next/link"
 
 export function UserMenu() {
   const { classes, cx } = useStyles()
@@ -28,7 +28,6 @@ export function UserMenu() {
           <Menu
             width={260}
             position="bottom-end"
-            transition="pop-top-right"
             onClose={() => setUserMenuOpened(false)}
             onOpen={() => setUserMenuOpened(true)}
             offset={1}
@@ -53,30 +52,30 @@ export function UserMenu() {
               </UnstyledButton>
             </Menu.Target>
             <Menu.Dropdown>
-              <NextLink href={"/faqs"} className={classes.link} legacyBehavior>
+              <Link href={"/faqs"} className={classes.link} legacyBehavior>
                 <Menu.Item component="span" icon={<IconQuestionMark size={14} stroke={2} />}>
                   FAQs
                 </Menu.Item>
-              </NextLink>
+              </Link>
 
               <Menu.Divider />
 
-              <NextLink href={"/mission-control"} className={classes.link} legacyBehavior>
+              <Link href={"/mission-control"} className={classes.link} legacyBehavior>
                 <Menu.Item component="span" icon={<IconDeviceAnalytics size={14} stroke={1.5} />}>
                   Mission Control
                 </Menu.Item>
-              </NextLink>
-              <NextLink href={"/mission-control/preflight"} className={classes.link} legacyBehavior>
+              </Link>
+              <Link href={"/mission-control/preflight"} className={classes.link} legacyBehavior>
                 <Menu.Item component="span" icon={<IconRocket size={14} stroke={1.5} />}>
                   Preflight
                 </Menu.Item>
-              </NextLink>
+              </Link>
 
-              <NextLink href={"/mission-control/profile"} className={classes.link} legacyBehavior>
+              <Link href={"/mission-control/profile"} className={classes.link} legacyBehavior>
                 <Menu.Item component="span" icon={<IconSettings size={14} stroke={1.5} />}>
                   Profile
                 </Menu.Item>
-              </NextLink>
+              </Link>
 
               <Menu.Divider />
 

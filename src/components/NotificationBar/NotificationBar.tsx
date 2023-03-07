@@ -13,7 +13,7 @@ export const NotificationBar = () => {
 
   const notes = notifications?.map((note, i) => {
     return (
-      <Notification className={classes.note} key={i} disallowClose color="red" p={20} mb={10}>
+      <Notification className={classes.note} key={i} color="red" p={20} mb={10}>
         {note.text}
       </Notification>
     )

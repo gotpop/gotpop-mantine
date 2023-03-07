@@ -2,12 +2,12 @@ import { DashBoardWidgets } from "@/components/DashBoardWidgets"
 import { LayoutDashboard } from "@/components/LayoutDashboard"
 import { fetcher } from "@/utils/fetcher"
 import { Button, Container, Paper, Text, Title } from "@mantine/core"
-import { NextLink } from "@mantine/next"
 import { Mission } from "@prisma/client"
 import { GetServerSideProps } from "next"
 import { getServerSession, Session } from "next-auth"
 import { authOptions } from "../api/auth/[...nextauth]"
 import useSWR from "swr"
+import Link from "next/link"
 
 type Props = {
   sessionData: Session
@@ -26,9 +26,9 @@ export default function MissionControl({ sessionData }: Props) {
         {missionData === null && !isLoading && (
           <Paper p="xl">
             <Text mb="xl">You need to complete the preflight checks!</Text>
-            <NextLink href={"/mission-control/preflight"} legacyBehavior>
+            <Link href={"/mission-control/preflight"} legacyBehavior>
               <Button>Launch today!</Button>
-            </NextLink>
+            </Link>
           </Paper>
         )}
 

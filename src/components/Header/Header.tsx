@@ -1,6 +1,7 @@
 import { Container, Group, Header } from "@mantine/core"
-import { NextLink } from "@mantine/next"
+// import { NextLink } from "@mantine/next"
 import { useSession } from "next-auth/react"
+import Link from "next/link"
 import { ConditionalWrapper } from "../ConditionalWrapper"
 import { Logo } from "../Logo"
 import { UserMenu } from "../UserMenu"
@@ -11,9 +12,9 @@ export function HeaderItem({ wrapperCondition = false }) {
   const { classes } = useStyles()
 
   const Login = () => (
-    <NextLink href="/login" color="gray" legacyBehavior className={classes.link}>
+    <Link href="/login" color="gray" legacyBehavior className={classes.link}>
       Join us
-    </NextLink>
+    </Link>
   )
 
   return (
