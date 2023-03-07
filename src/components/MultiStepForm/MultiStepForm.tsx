@@ -7,7 +7,6 @@ import { IconCheck } from "@tabler/icons-react"
 import { useState } from "react"
 import { useStyles } from "./MultiStepForm.styles"
 import { StepControls } from "./StepControls/StepControls"
-import { useHandleSteps } from "./useHandleSteps"
 import { useMultiStep } from "./useMultiStep"
 import { useSubmit } from "./useSubmit"
 
