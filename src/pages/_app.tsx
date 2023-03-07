@@ -19,7 +19,10 @@ const montserrat = Montserrat({
 
 export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <div className={`${bebas.variable} ${montserrat.variable}`}>
+    <div
+      className={`${bebas.variable} ${montserrat.variable}`}
+      style={{ position: "relative", overflow: "hidden" }}
+    >
       <SessionProvider session={session}>
         <NotificationProvider>
           <MantineProvider

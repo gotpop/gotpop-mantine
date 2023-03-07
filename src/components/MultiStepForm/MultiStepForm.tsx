@@ -6,8 +6,8 @@ import { Stepper } from "@mantine/core"
 import { IconCheck } from "@tabler/icons-react"
 import { useStyles } from "./MultiStepForm.styles"
 import { StepControls } from "./StepControls/StepControls"
-import { useMultiStep } from "./useMultiStep"
-import { useSubmit } from "./useSubmit"
+import { useMultiStep } from "@/hooks/useMultiStep"
+import { useSubmit } from "@/hooks/useSubmit"
 
 export const MultiStepForm = () => {
   const { classes } = useStyles()

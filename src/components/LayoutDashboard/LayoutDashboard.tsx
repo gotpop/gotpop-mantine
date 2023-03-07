@@ -23,7 +23,7 @@ export function LayoutDashboard({ children }: Props) {
         navbar={<SideNav />}
         padding="md"
         styles={(theme) => ({
-          main: { padding: 0, backgroundColor: theme.colors.gray[1] }
+          main: { padding: 0, backgroundColor: theme.colors.gray[1], overflow: "hidden" }
         })}
       >
         {children}
