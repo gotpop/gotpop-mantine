@@ -28,10 +28,15 @@ type Props = {
   children: React.ReactNode
 }
 
+type ObjType = {
+  text: string | React.ReactNode
+  type: string
+}
+
 const NotificationProvider = ({ children }: Props) => {
   const [notification, setNotification] = useState<null | string>(null)
   const [notificationText, setNotificationText] = useState<null | string | ReactNode>(null)
-  const [notifications, setNotifications] = useState([])
+  const [notifications, setNotifications] = useState<ObjType[]>([])
 
   const success = (text: string) => {
     setNotificationText(text)
@@ -51,8 +56,6 @@ const NotificationProvider = ({ children }: Props) => {
   }
 
   const clear = () => {
-    // setNotificationText(null)
-    // setNotification(null)
     setNotifications([])
   }
 
