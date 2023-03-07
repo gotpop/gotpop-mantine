@@ -19,12 +19,12 @@ export function StepControls({ active, form, nextStep, prevStep, isLoading }: Pr
           Back
         </Button>
       )}
-      {active !== 4 && (
+      {active !== 3 && (
         <Button size="lg" onClick={nextStep} rightIcon={<IconChevronRight />} disabled={!form.isValid()}>
           Next step
         </Button>
       )}
-      {active === 4 && (
+      {active === 3 && (
         <Button
           loading={isLoading}
           type="submit"
