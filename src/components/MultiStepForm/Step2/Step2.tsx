@@ -2,7 +2,7 @@ import { Checkbox, SimpleGrid, Text, Title } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
 import { FormValues } from "../form"
 import { contactsData } from "./data"
-import { useStyles } from "./useStyles"
+import { useStyles } from "./Step2.styles"
 
 type Props = {
   form: UseFormReturnType<FormValues>
@@ -11,13 +11,12 @@ type Props = {
 export function Step2({ form }: Props) {
   const { classes } = useStyles()
 
-  const checks = contactsData.map((item, index: number) => (
+  const checks = contactsData.map(({ id, label }, index: number) => (
     <Checkbox
       {...form.getInputProps(`contacts.${index}.active`, { type: "checkbox" })}
-      key={item.id}
-      label={item.label}
-      description={item.description}
-      error={form.errors.contacts}
+      key={id}
+      label={label}
+      error={form.errors.contacts ? <></> : null}
     />
   ))
 

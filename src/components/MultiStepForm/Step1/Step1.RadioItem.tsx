@@ -1,6 +1,6 @@
 import { Box, Center, Group, Overlay, Radio, RingProgress, Text, Title } from "@mantine/core"
 import { IconCheck, IconSkull } from "@tabler/icons-react"
-import { useStyles } from "./useStep1Styles"
+import { useStyles } from "./Step1.styles"
 
 type Props = {
   value: string

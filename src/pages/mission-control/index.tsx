@@ -15,7 +15,6 @@ type Props = {
 
 export default function MissionControl({ sessionData }: Props) {
   const { data: missionData, error, isLoading } = useSWR<Mission>("/api/mission", fetcher)
-  console.log("missionData :", missionData)
 
   return (
     <LayoutDashboard>

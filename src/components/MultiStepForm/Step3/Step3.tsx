@@ -1,23 +1,27 @@
-import { Notification, Paper, Radio, SimpleGrid, Text, Title } from "@mantine/core"
+import { Paper, Radio, SimpleGrid, Text, Title } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
-import { IconX } from "@tabler/icons-react"
 import { FormValues } from "../form"
 import { backgroundData, logoData, taglineData } from "./data"
-import { useStyles } from "./useStyles"
+import { useStyles } from "./Step3.styles"
 
 type Props = {
   form: UseFormReturnType<FormValues>
 }
 
 export function Step3({ form }: Props) {
+  const { errors } = form
   const { classes } = useStyles()
 
-  const logoItems = logoData.map((item) => <Radio value={item.value} label={item.label} key={item.id} />)
-  const taglineItems = taglineData.map((item) => (
-    <Radio value={item.value} label={item.label} key={item.id} />
+  const logoItems = logoData.map(({ value, id, label }) => (
+    <Radio value={value} label={label} key={id} error={errors.nftLogo ? <></> : null} />
   ))
-  const backgroundItems = backgroundData.map((item) => (
-    <Radio value={item.value} label={item.label} key={item.id} />
+
+  const taglineItems = taglineData.map(({ value, id, label }) => (
+    <Radio value={value} label={label} key={id} error={errors.nftTagline ? <></> : null} />
+  ))
+
+  const backgroundItems = backgroundData.map(({ value, id, label }) => (
+    <Radio value={value} label={label} key={id} error={errors.nftBackground ? <></> : null} />
   ))
 
   return (
@@ -45,13 +49,6 @@ export function Step3({ form }: Props) {
           <Radio.Group
             {...form.getInputProps("nft.logo")}
             description="What have you got to lose?"
-            error={
-              form.errors.nftLogo && (
-                <Notification mt={20} disallowClose icon={<IconX size="1.1rem" />} color="red">
-                  {form.errors.nftLogo}
-                </Notification>
-              )
-            }
             label="Choose a logo"
             name="chooseALogo"
             offset={40}
@@ -66,13 +63,6 @@ export function Step3({ form }: Props) {
           <Radio.Group
             {...form.getInputProps("nft.tagline")}
             description="What have you got to lose?"
-            error={
-              form.errors.nftTagline && (
-                <Notification mt={20} disallowClose icon={<IconX size="1.1rem" />} color="red">
-                  {form.errors.nftTagline}
-                </Notification>
-              )
-            }
             label="Choose a tagline"
             name="chooseATagline"
             offset={40}
@@ -87,13 +77,6 @@ export function Step3({ form }: Props) {
           <Radio.Group
             {...form.getInputProps("nft.background")}
             description="What have you got to lose?"
-            error={
-              form.errors.nftBackground && (
-                <Notification mt={20} disallowClose icon={<IconX size="1.1rem" />} color="red">
-                  {form.errors.nftBackground}
-                </Notification>
-              )
-            }
             label="Choose background"
             name="chooseABackground"
             offset={40}

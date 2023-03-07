@@ -12,8 +12,6 @@ export const NotificationBar = () => {
   }, [notifications])
 
   const notes = notifications?.map((note, i) => {
-    console.log("note, i :", note, i)
-
     return (
       <Notification key={i} disallowClose color="red" p={20} mb={10}>
         {note.text}
@@ -25,7 +23,7 @@ export const NotificationBar = () => {
     <>
       {notifications.length !== 0 && (
         <>
-          <div className={classes.root}>{notes && notes}</div>
+          <div className={classes.root}>{notes}</div>
         </>
       )}
     </>

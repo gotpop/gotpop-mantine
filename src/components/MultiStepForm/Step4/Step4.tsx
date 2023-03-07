@@ -1,6 +1,5 @@
-import { Notification, Paper, Radio } from "@mantine/core"
+import { Paper, Radio } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
-import { IconX } from "@tabler/icons-react"
 import { FormValues } from "../form"
 import { finalWishData } from "./data"
 
@@ -8,8 +7,10 @@ type Props = {
   form: UseFormReturnType<FormValues>
 }
 export function Step4({ form }: Props) {
-  const finalWishItems = finalWishData.map((wish) => (
-    <Radio key={wish.id} value={wish.value} label={wish.label} />
+  const err = form.errors.finalWish
+
+  const finalWishItems = finalWishData.map(({ id, value, label }) => (
+    <Radio key={id} value={value} label={label} error={err ? <></> : null} />
   ))
 
   return (
@@ -18,13 +19,7 @@ export function Step4({ form }: Props) {
         <Radio.Group
           {...form.getInputProps("finalWish")}
           description="What have you got to lose?"
-          error={
-            form.errors.finalWish && (
-              <Notification mt={20} disallowClose icon={<IconX size="1.1rem" />} color="red">
-                {form.errors.finalWish}
-              </Notification>
-            )
-          }
+          error={<></>}
           label="Choose a tagline"
           name="finalWish"
           offset={40}

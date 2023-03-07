@@ -24,6 +24,8 @@ export function useMultiStep() {
 
     const form = useForm({
         initialValues: formInit,
+        // validateInputOnChange: ['contacts', 'finalWish'],
+        // validateInputOnBlur: true,
         validate: (values) => {
             if (active === 0) {
                 return {

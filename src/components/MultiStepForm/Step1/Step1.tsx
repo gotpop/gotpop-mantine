@@ -2,7 +2,7 @@ import { Radio, SimpleGrid } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
 import { FormValues } from "../form"
 import { radioData } from "./data"
-import { RadioItem } from "./RadioItem"
+import { RadioItem } from "./Step1.RadioItem"
 
 type Props = {
   form: UseFormReturnType<FormValues>
