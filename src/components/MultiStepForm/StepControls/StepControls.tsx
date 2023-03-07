@@ -1,14 +1,17 @@
 import { Button, Group } from "@mantine/core"
+import { UseFormReturnType } from "@mantine/form"
 import { IconChevronLeft, IconChevronRight, IconRocket } from "@tabler/icons-react"
+import { FormValues } from "../form"
 
 type Props = {
   active: number
   nextStep: () => void
   prevStep: () => void
   isLoading: boolean
+  form: UseFormReturnType<FormValues>
 }
 
-export function StepControls({ active, nextStep, prevStep, isLoading }: Props) {
+export function StepControls({ active, form, nextStep, prevStep, isLoading }: Props) {
   return (
     <Group position="center" mt="xl">
       {active !== 0 && (
@@ -17,7 +20,7 @@ export function StepControls({ active, nextStep, prevStep, isLoading }: Props) {
         </Button>
       )}
       {active !== 4 && (
-        <Button size="lg" onClick={nextStep} rightIcon={<IconChevronRight />}>
+        <Button size="lg" onClick={nextStep} rightIcon={<IconChevronRight />} disabled={!form.isValid()}>
           Next step
         </Button>
       )}

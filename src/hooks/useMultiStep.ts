@@ -63,6 +63,7 @@ export function useMultiStep() {
     }
 
     useEffect(() => {
+        console.log('form :', form);
         if (form.isValid()) return
 
         Object.keys(form.errors).map((key) => {

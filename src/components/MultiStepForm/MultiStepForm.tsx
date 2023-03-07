@@ -46,7 +46,13 @@ export const MultiStepForm = () => {
         </Stepper.Step>
       </Stepper>
 
-      <StepControls active={active} nextStep={nextStep} prevStep={prevStep} isLoading={isLoading} />
+      <StepControls
+        active={active}
+        form={form}
+        nextStep={nextStep}
+        prevStep={prevStep}
+        isLoading={isLoading}
+      />
     </form>
   )
 }
