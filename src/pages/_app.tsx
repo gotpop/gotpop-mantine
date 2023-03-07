@@ -2,8 +2,7 @@ import { MantineProvider } from "@mantine/core"
 import type { AppProps } from "next/app"
 import { Bebas_Neue, Montserrat } from "@next/font/google"
 import { SessionProvider } from "next-auth/react"
-import { NotificationProvider } from "@/context/notificationContext"
-import { NotificationBar } from "@/components/NotificationBar/NotificationBar"
+import { Notifications } from "@mantine/notifications"
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -24,20 +23,18 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
       style={{ position: "relative", overflow: "hidden" }}
     >
       <SessionProvider session={session}>
-        <NotificationProvider>
-          <MantineProvider
-            withGlobalStyles
-            withNormalizeCSS
-            theme={{
-              colorScheme: "light",
-              fontFamily: "var(--font-montserrat), Verdana, sans-serif",
-              headings: { fontFamily: "var(--font-bebas), Greycliff CF, sans-serif" }
-            }}
-          >
-            <NotificationBar />
-            <Component {...pageProps} />
-          </MantineProvider>
-        </NotificationProvider>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            colorScheme: "light",
+            fontFamily: "var(--font-montserrat), Verdana, sans-serif",
+            headings: { fontFamily: "var(--font-bebas), Greycliff CF, sans-serif" }
+          }}
+        >
+          <Notifications />
+          <Component {...pageProps} />
+        </MantineProvider>
       </SessionProvider>
     </div>
   )
