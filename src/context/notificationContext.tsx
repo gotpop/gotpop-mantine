@@ -1,9 +1,9 @@
 import { FormErrors } from "@mantine/form"
-import React, { useState } from "react"
+import React, { ReactNode, useState } from "react"
 
 type NotificationContextType = {
   notification: string | null
-  notificationText: string | null | undefined
+  notificationText: string | null | undefined | ReactNode
   success: (text: string) => void
   error: (text: string | FormErrors[string]) => void
   clear: () => void
@@ -28,7 +28,7 @@ type Props = {
 
 const NotificationProvider = ({ children }: Props) => {
   const [notification, setNotification] = useState<null | string>(null)
-  const [notificationText, setNotificationText] = useState<null | string>(null)
+  const [notificationText, setNotificationText] = useState<null | string | ReactNode>(null)
 
   const success = (text: string) => {
     setNotificationText(text)

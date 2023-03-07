@@ -2,13 +2,13 @@ import { useForm } from "@mantine/form"
 import { formInit } from "./form"
 
 import NotificationContext from "@/context/notificationContext"
-import { useContext, useEffect, useState } from "react"
+import { SetStateAction, useContext, useEffect, useState } from "react"
 
 export function useMultiStep() {
     const notificationCtx = useContext(NotificationContext)
     const [active, setActive] = useState<number>(0)
 
-    const handleActive = (active: (current: number) => number) => setActive(active)
+    const handleActive = (active: SetStateAction<number>) => setActive(active)
     const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current))
 
     const nextStep = () => {

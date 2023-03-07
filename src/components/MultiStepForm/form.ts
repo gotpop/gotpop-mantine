@@ -1,16 +1,16 @@
-// export type FormValues = {
-//     missionType: string
-//     contacts: {
-//         key: string
-//         active: boolean
-//     }[]
-//     nft: {
-//         logo: string
-//         tagline: string
-//         background: string
-//     }
-//     finalWish: string
-// }
+export type FormValues = {
+    missionType: string
+    contacts: {
+        key: string
+        active: boolean
+    }[]
+    nft: {
+        logo: string
+        tagline: string
+        background: string
+    }
+    finalWish: string
+}
 
 export const formInit = {
     missionType: "",

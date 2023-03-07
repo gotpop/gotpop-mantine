@@ -1,8 +1,8 @@
-import { Paper, Radio, SimpleGrid, Title, Text, Notification } from "@mantine/core"
+import { Notification, Paper, Radio, SimpleGrid, Text, Title } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
 import { IconX } from "@tabler/icons-react"
-import { FormValues } from "../MultiStepForm"
-import { logoData, taglineData, backgroundData } from "./data"
+import { FormValues } from "../form"
+import { backgroundData, logoData, taglineData } from "./data"
 import { useStyles } from "./useStyles"
 
 type Props = {

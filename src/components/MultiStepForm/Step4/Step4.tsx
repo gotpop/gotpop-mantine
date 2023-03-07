@@ -1,7 +1,7 @@
 import { Notification, Paper, Radio } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
 import { IconX } from "@tabler/icons-react"
-import { FormValues } from "../MultiStepForm"
+import { FormValues } from "../form"
 import { finalWishData } from "./data"
 
 type Props = {

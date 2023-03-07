@@ -1,6 +1,6 @@
-import { Title, Text, SimpleGrid, Checkbox, Box } from "@mantine/core"
+import { Checkbox, SimpleGrid, Text, Title } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
-import { FormValues } from "../MultiStepForm"
+import { FormValues } from "../form"
 import { contactsData } from "./data"
 import { useStyles } from "./useStyles"
 

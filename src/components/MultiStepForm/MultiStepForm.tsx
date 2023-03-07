@@ -4,7 +4,6 @@ import { Step3 } from "@/components/MultiStepForm/Step3"
 import { Step4 } from "@/components/MultiStepForm/Step4"
 import { Stepper } from "@mantine/core"
 import { IconCheck } from "@tabler/icons-react"
-import { useState } from "react"
 import { useStyles } from "./MultiStepForm.styles"
 import { StepControls } from "./StepControls/StepControls"
 import { useMultiStep } from "./useMultiStep"
@@ -12,21 +11,16 @@ import { useSubmit } from "./useSubmit"
 
 export const MultiStepForm = () => {
   const { classes } = useStyles()
-  const [isLoading, setIsLoading] = useState(false)
-
-  const { handleSubmit } = useSubmit()
-
-  const handleLoading = (loading: boolean) => setIsLoading(loading)
-
+  const { handleSubmit, isLoading } = useSubmit()
   const { form, active, nextStep, prevStep, handleActive } = useMultiStep()
 
   return (
-    <form onSubmit={form.onSubmit((values) => handleSubmit(values, handleLoading))}>
+    <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
       <Stepper
         active={active}
         breakpoint="sm"
         size="md"
-        onStepClick={handleActive}
+        onStepClick={(stepIndex) => handleActive(stepIndex)}
         contentPadding="xl"
         allowNextStepsSelect={false}
         completedIcon={<IconCheck />}

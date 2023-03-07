@@ -1,8 +1,6 @@
-import NotificationContext from "@/context/notificationContext"
 import { Radio, SimpleGrid } from "@mantine/core"
 import { UseFormReturnType } from "@mantine/form"
-import { useContext } from "react"
-import { FormValues } from "../MultiStepForm"
+import { FormValues } from "../form"
 import { radioData } from "./data"
 import { RadioItem } from "./RadioItem"
 
