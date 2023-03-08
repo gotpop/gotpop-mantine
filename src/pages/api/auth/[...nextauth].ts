@@ -20,14 +20,7 @@ export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       type: "credentials",
-      credentials: {
-        username: {
-          label: "Username",
-          type: "text",
-          placeholder: "jsmith",
-        },
-        password: { label: "Password", type: "password" },
-      },
+      credentials: {},
 
       authorize: async (credentials, req) => {
         const user = await fetch(
