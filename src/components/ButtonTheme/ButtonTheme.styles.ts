@@ -10,10 +10,7 @@ export default createStyles((theme, { radius }: MyComponentStylesParams) => ({
         borderRadius: theme.fn.radius(radius),
         color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.white,
         display: 'inline-flex',
-        paddingBottom: theme.spacing.sm,
-        paddingLeft: theme.spacing.xxl,
-        paddingRight: theme.spacing.xxl,
-        paddingTop: theme.spacing.sm,
+        padding: "1rem 2rem",
         textDecoration: 'none',
         textTransform: 'uppercase',
 
@@ -24,6 +21,6 @@ export default createStyles((theme, { radius }: MyComponentStylesParams) => ({
     },
     text: {
         fontFamily: theme.headings.fontFamily,
-        fontSize: theme.fontSizes.xl,
+        fontSize: '30px',
     },
 }))

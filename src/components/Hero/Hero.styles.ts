@@ -14,7 +14,7 @@ export const useStyles = createStyles((theme: MantineTheme, img: string) => ({
         padding: "calc(60px + 2rem) 2rem 2rem 2rem",
     },
     content: {
-        gridColumn: "2 / 6",
+        gridColumn: "3 / 7",
         zIndex: 1,
         position: "relative",
     },
@@ -39,7 +39,7 @@ export const useStyles = createStyles((theme: MantineTheme, img: string) => ({
         color: theme.white,
         maxWidth: 600,
         fontSize: 25,
-        marginBottom: theme.spacing.xxl,
+        marginBottom: '2.5rem',
 
         [theme.fn.smallerThan("sm")]: {
             maxWidth: "100%",

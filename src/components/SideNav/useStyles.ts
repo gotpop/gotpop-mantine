@@ -42,7 +42,8 @@ export const useStyles = createStyles<string, { collapsed?: boolean }>((theme, p
             textDecoration: "none",
             fontSize: theme.fontSizes.sm,
             color: theme.colors.gray[7],
-            padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
+            // padding: `${theme.spacing.xl}px ${theme.spacing.xl}px`,
+            padding: '1rem 1.2rem',
             borderRadius: theme.radius.sm,
             fontWeight: 500,
 
