@@ -1,3 +1,4 @@
+import { notifications } from "@mantine/notifications"
 import { Mission } from "@prisma/client"
 import axios from "axios"
 import { useRouter } from "next/router"
@@ -14,6 +15,13 @@ export function useSubmit() {
         await axios.post("/api/mission", values)
 
         setIsLoading(false)
+
+        notifications.show({
+            title: 'Done',
+            message: 'Successfully created mission',
+            color: 'green',
+        })
+
         router.push("/mission-control")
     }
 
