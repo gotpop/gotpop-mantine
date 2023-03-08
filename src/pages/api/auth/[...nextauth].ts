@@ -22,18 +22,17 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       type: "credentials",
       id: "username-login",
-      // credentials: {},
-      credentials: {
-        username: { label: "Username", type: "text ", placeholder: "username" },
-        password: {
-          label: "Password",
-          type: "password",
-          placeholder: "a-really-long-password",
-        },
-      },
+      credentials: {},
+      // credentials: {
+      //   username: { label: "Username", type: "text ", placeholder: "username" },
+      //   password: {
+      //     label: "Password",
+      //     type: "password",
+      //     placeholder: "a-really-long-password",
+      //   },
+      // },
 
       authorize: async (credentials, req) => {
-        const { email, password }: any = { ...credentials }
 
         return axios
           .post(`${process.env.NEXTAUTH_URL}/api/user/check-credentials`, {
