@@ -65,10 +65,10 @@ export const authOptions: NextAuthOptions = {
       //       return null;
       //     }
       //   }
-      // }),
+    }),
 
-      GoogleProvider({
-        clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
       allowDangerousEmailAccountLinking: true,
     }),
