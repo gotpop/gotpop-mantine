@@ -28,8 +28,8 @@ export const authOptions: NextAuthOptions = {
 
         return axios
           .post(`${process.env.NEXT_PUBLIC_STRAPI_API}/api/user/check-credentials`, {
-            identifier: email,
-            password: password,
+            identifier: 'test@test.com',
+            password: 'password',
           })
           .then((response) => {
             return response.data;
