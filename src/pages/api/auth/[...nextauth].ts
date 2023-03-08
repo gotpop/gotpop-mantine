@@ -21,13 +21,22 @@ export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       type: "credentials",
-      credentials: {},
+      id: "username-login",
+      // credentials: {},
+      credentials: {
+        username: { label: "Username", type: "text ", placeholder: "username" },
+        password: {
+          label: "Password",
+          type: "password",
+          placeholder: "a-really-long-password",
+        },
+      },
 
       authorize: async (credentials, req) => {
         const { email, password }: any = { ...credentials }
 
         return axios
-          .post(`${process.env.NEXT_PUBLIC_STRAPI_API}/api/user/check-credentials`, {
+          .post(`${process.env.NEXTAUTH_URL}/api/user/check-credentials`, {
             identifier: 'test@test.com',
             password: 'password',
           })
