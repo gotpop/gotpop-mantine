@@ -1,56 +1,60 @@
-import { Text, Paper, Group, PaperProps } from "@mantine/core"
+import {
+  Text,
+  Paper,
+  Group,
+  PaperProps,
+  Badge,
+  TextInput,
+  PasswordInput,
+  Button,
+  Divider,
+  Stack
+} from "@mantine/core"
 
 import { GoogleButton } from "../SocialButtons"
 import { GitHubButton } from "../SocialButtons/SocialButtons"
 
-import { useToggle, upperFirst } from "@mantine/hooks"
 import { useForm } from "@mantine/form"
-import { TextInput, PasswordInput, Button, Divider, Checkbox, Anchor, Stack } from "@mantine/core"
 import { signIn, useSession } from "next-auth/react"
-import { FormEventHandler, useState } from "react"
+import { FormEventHandler } from "react"
 
 export function AuthenticationForm(props: PaperProps) {
   const { status } = useSession()
-  const [type, toggle] = useToggle(["login", "register"])
+
   const form = useForm({
     initialValues: {
       email: "",
-      name: "",
-      password: "",
-      terms: true
+      password: ""
     }
-
-    // validate: {
-    //   email: (val) => (/^\S+@\S+$/.test(val) ? null : "Invalid email"),
-    //   password: (val) => (val.length <= 5 ? "Password should include at least 6 characters" : null)
-    // }
   })
 
-  const [userInfo, setUserInfo] = useState({ email: "", password: "" })
-
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-    // validate your userinfo
-    console.log("handleSubmit")
     e.preventDefault()
 
-    const res = await signIn("credentials", {
-      email: "test@test.com",
-      password: "password",
-      // email: userInfo.email,
-      // password: userInfo.password,
+    await signIn("credentials", {
+      email: form.values.email,
+      password: form.values.password,
       redirect: false
     })
-
-    console.log(res)
   }
 
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
+      {status === "authenticated" && (
+        <Badge variant="gradient" gradient={{ from: "teal", to: "lime" }}>
+          Authenticated
+        </Badge>
+      )}
+
+      {status === "unauthenticated" && (
+        <Badge variant="gradient" gradient={{ from: "orange", to: "red" }}>
+          Unauthenticated
+        </Badge>
+      )}
+
       <Text size="lg" weight={500}>
         Welcome to SpaceX, login with
       </Text>
-
-      <h1>{status}</h1>
 
       <Group grow mb="md" mt="md">
         <GoogleButton radius="xl">Google</GoogleButton>
@@ -61,20 +65,10 @@ export function AuthenticationForm(props: PaperProps) {
 
       <form onSubmit={(e) => handleSubmit(e)}>
         <Stack>
-          {type === "register" && (
-            <TextInput
-              label="Name"
-              placeholder="Your name"
-              value={form.values.name}
-              onChange={(event) => form.setFieldValue("name", event.currentTarget.value)}
-              radius="md"
-            />
-          )}
-
           <TextInput
             required
             label="Email"
-            placeholder="hello@mantine.dev"
+            placeholder="hello@spacex.com"
             value={form.values.email}
             onChange={(event) => form.setFieldValue("email", event.currentTarget.value)}
             error={form.errors.email && "Invalid email"}
@@ -90,22 +84,11 @@ export function AuthenticationForm(props: PaperProps) {
             error={form.errors.password && "Password should include at least 6 characters"}
             radius="md"
           />
-
-          {type === "register" && (
-            <Checkbox
-              label="I accept terms and conditions"
-              checked={form.values.terms}
-              onChange={(event) => form.setFieldValue("terms", event.currentTarget.checked)}
-            />
-          )}
         </Stack>
 
         <Group position="apart" mt="xl">
-          <Anchor component="button" type="button" color="dimmed" onClick={() => toggle()} size="xs">
-            {type === "register" ? "Already have an account? Login" : "Don't have an account? Register"}
-          </Anchor>
           <Button type="submit" radius="xl">
-            {upperFirst(type)}
+            Submit
           </Button>
         </Group>
       </form>

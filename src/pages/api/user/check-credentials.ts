@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import prisma from "../../../lib/prisma";
+import prisma from "@/lib/prisma";
 import sha256 from "crypto-js/sha256";
-// import { logger } from "lib/logger";
+import { logger } from "@/lib/logger";
 import { omit } from "lodash";
 
 export default async function handle(
@@ -35,12 +35,10 @@ async function handlePOST(res: NextApiResponse<any>, req: NextApiRequest) {
     });
 
     if (user && user.password == req.body.password) {
-        // logger.debug("password correct");
-        console.log("password correct");
-
+        logger.debug("password correct");
         res.json(omit(user, "password"));
     } else {
-        // logger.debug("incorrect credentials");
+        logger.debug("incorrect credentials");
         res.status(400).end("Invalid credentials");
     }
 }
