@@ -36,8 +36,8 @@ export const authOptions: NextAuthOptions = {
           })
           .catch((error) => {
             console.log(error.response);
-            throw new Error(error.response.data.message);
-          }) || null;
+            return null
+          })
       },
 
       //   authorize: async (credentials, req) => {
