@@ -11,8 +11,7 @@ export function useSubmit() {
 
     const handleSubmit = async (values: MissionNoMeta) => {
         setIsLoading(true)
-        const stringData = JSON.stringify(values)
-        await axios.post("/api/mission", stringData)
+        await axios.post("/api/mission", values)
 
         setIsLoading(false)
         router.push("/mission-control")
