@@ -31,13 +31,13 @@ export function AuthenticationForm(props: PaperProps) {
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
 
-    await signIn("username-login", { email: "test@test.com", password: "password" })
+    // await signIn("username-login", { email: "test@test.com", password: "password" })
 
-    // await signIn("credentials", {
-    //   email: form.values.email,
-    //   password: form.values.password,
-    //   redirect: false
-    // })
+    await signIn("credentials", {
+      email: form.values.email,
+      password: form.values.password,
+      redirect: false
+    })
   }
 
   return (
